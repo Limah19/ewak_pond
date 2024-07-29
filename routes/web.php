@@ -34,6 +34,10 @@ Route::get('/home', function () {
     return view('home');
 });
 
+Route::get('/dashboard', function () {
+    return view('dashboard');
+});
+
 Route::get('/forminput', [PagesController::class,'FormInput']);
 Route::post('/welcome', [PagesController::class,'Welcome']);
 
