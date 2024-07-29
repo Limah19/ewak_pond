@@ -1,3 +1,20 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.container {
+    display: flex;
+    gap: 20px; /* Jarak antara div */
+}
+.card {
+    flex: 1;
+    border: 1px solid #ccc;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+/* Media query untuk layar kecil */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+}

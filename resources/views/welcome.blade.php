@@ -29,7 +29,8 @@ Welcome
     </head>
    
     <body>
-        <h1>Selamat datang di laravel</h1>
+        <h1>Selamat Datang di EWAK POND </h1>
+        <h3>Kelompok Budidaya Ikan </h3>
         Ingin ke halaman home, <a href="/dashboard">klik disini</a>
     </body>
 </html>
