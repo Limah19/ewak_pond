@@ -3,10 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Cast;
+use App\Models\Kolam;
 use RealRashid\SweetAlert\Facades\Alert;
 
-class CastController extends Controller
+class KolamController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +15,8 @@ class CastController extends Controller
      */
     public function index()
     {
-        $cast = Cast::all();
-        return view('cast.index', compact('cast'));
+        $kolam = Kolam::all();
+        return view('kolam.index', compact('kolam'));
     }
 
     /**
@@ -26,8 +26,7 @@ class CastController extends Controller
      */
     public function create()
     {
-        //
-        return view('Cast.create');
+        return view('kolam.create');
     }
 
     /**
@@ -38,39 +37,26 @@ class CastController extends Controller
      */
     public function store(Request $request)
     {
-        $cast = new Cast;
-
         $request->validate([
-            'nama' => 'required',
-            'umur' => 'required',
-            'bio' => 'required',
-            ]);
+            'nama_kolam' => 'required',
+            'ukuran_kolam' => 'required|numeric',
+            'status' => 'required|boolean',
+        ]);
 
-        $cast->nama = $request->nama;
-        $cast->umur = $request->umur;
-        $cast->bio = $request->bio;
+        $kolam = new Kolam;
+        $kolam->nama_kolam = $request->nama_kolam;
+        $kolam->ukuran_kolam = $request->ukuran_kolam;
+        $kolam->status = $request->status;
 
-        $simpan = $cast->save();
-        
-        if($simpan) {
+        $simpan = $kolam->save();
+
+        if ($simpan) {
             Alert::success('Success', 'Data Berhasil ditambah');
-            return redirect('/cast');
-        }else{
+            return redirect('/kolam');
+        } else {
             Alert::error('Failed', 'Data Gagal ditambah');
+            return redirect('/kolam');
         }
-        
-        return redirect('/cast');
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
     }
 
     /**
@@ -81,10 +67,8 @@ class CastController extends Controller
      */
     public function edit($id)
     {
-        //
-        $cast = Cast::where('id',$id)->first();
-
-        return view('cast.edit', compact('cast'));
+        $kolam = Kolam::findOrFail($id);
+        return view('kolam.edit', compact('kolam'));
     }
 
     /**
@@ -97,23 +81,24 @@ class CastController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'nama' => 'required',
-            'umur' => 'required',
-            'bio' => 'required',
+            'nama_kolam' => 'required',
+            'ukuran_kolam' => 'required|numeric',
+            'status' => 'required|boolean',
         ]);
-        
-        $cast = Cast::find($id);
-        $cast->nama = $request->nama;
-        $cast->umur = $request->umur;
-        $cast->bio = $request->bio;
-        
-        $ubah = $cast->save();
 
-        if($ubah) {
+        $kolam = Kolam::findOrFail($id);
+        $kolam->nama_kolam = $request->nama_kolam;
+        $kolam->ukuran_kolam = $request->ukuran_kolam;
+        $kolam->status = $request->status;
+
+        $ubah = $kolam->save();
+
+        if ($ubah) {
             Alert::success('Success', 'Data Berhasil diubah');
-            return redirect('/cast');
-        }else{
+            return redirect('/kolam');
+        } else {
             Alert::error('Failed', 'Data Gagal diubah');
+            return redirect('/kolam');
         }
     }
 
@@ -125,15 +110,15 @@ class CastController extends Controller
      */
     public function destroy($id)
     {
-        $cast = Cast::find($id);
-        $hapus = $cast->delete();
+        $kolam = Kolam::findOrFail($id);
+        $hapus = $kolam->delete();
 
-        if($hapus) {
+        if ($hapus) {
             Alert::success('Success', 'Data Berhasil dihapus');
-            return redirect('/cast');
-        }else{
+            return redirect('/kolam');
+        } else {
             Alert::error('Failed', 'Data Gagal dihapus');
+            return redirect('/kolam');
         }
-        return redirect('/cast');
     }
 }

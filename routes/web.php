@@ -5,6 +5,7 @@ use App\Http\Controllers\PagesController;
 use App\Http\Controllers\CastController;
 use App\Http\Controllers\FilmController;
 use App\Http\Controllers\PeranController;
+use App\Http\Controllers\KolamController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,14 +34,6 @@ Route::get('/datatable', function () {
     return view('datatable.index');
 });
 
-// CRUD CAST
-Route::get('/cast', [CastController::class, 'index']);
-Route::get('/cast/create', [CastController::class, 'create']);
-Route::post('/cast', [CastController::class, 'store']);
-Route::get('/cast/{cast_id}/edit', [CastController::class, 'edit']);
-Route::put('/cast/{cast_id}', [CastController::class, 'update']);
-Route::delete('/cast/{cast_id}', [CastController::class, 'destroy']);
-
 // CRUD FILM
 Route::get('/film', [FilmController::class, 'index']);
 Route::get('/film/create', [FilmController::class, 'create']);
@@ -66,4 +59,13 @@ Route::get('/', function () {
 Route::get('/owner', function () {
     return view('owner');
 }); // ->middleware('auth')
+
+// CRUD Kolam
+Route::get('/kolam', [KolamController::class, 'index']);
+Route::get('/kolam/create', [KolamController::class, 'create']);
+Route::post('/kolam', [KolamController::class, 'store']);
+Route::get('/kolam/{kolam_id}/edit', [KolamController::class, 'edit']);
+Route::put('/kolam/{kolam_id}', [KolamController::class, 'update']);
+Route::delete('/kolam/{kolam_id}', [KolamController::class, 'destroy']);
+
 

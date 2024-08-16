@@ -1,7 +1,7 @@
 @extends('layout.master')
 
 @section('judul')
-Daftar cast
+Daftar Kolam
 @endsection
 
 @push('script')
@@ -18,30 +18,30 @@ Daftar cast
 @endpush
 
 @section('content')
-<a class="btn btn-secondary mb-3" href="/cast/create">Tambah Data</a>
+<a class="btn btn-secondary mb-3" href="/kolam/create">Tambah Data Kolam</a>
 <table class="table" id="example1">
   <thead class="thead-dark">
     <tr>
       <th scope="col">#</th>
-      <th scope="col">Nama</th>
-      <th scope="col">Umur</th>
-      <th scope="col">Bio</th>
+      <th scope="col">Nama Kolam</th>
+      <th scope="col">Ukuran Kolam (m<sup>2</sup>)</th>
+      <th scope="col">Status</th>
       <th scope="col">Action</th>
     </tr>
   </thead>
   <tbody>
-    @forelse ($cast as $key => $item)
+    @forelse ($kolam as $key => $item)
     <tr>
       <td>{{$key + 1}}</td>
-      <td>{{$item->nama}}</td>
-      <td>{{$item->umur}}</td>
-      <td>{{$item->bio}}</td>
+      <td>{{$item->nama_kolam}}</td>
+      <td>{{$item->ukuran_kolam}}</td>
+      <td>{{ $item->status ? 'Aktif' : 'Tidak Aktif' }}</td>
       <td>
-        <form action="/cast/{{ $item->id }}" method="POST" id="deleteForm">
-            <a href="/cast/{{ $item->id }}/edit" class="btn btn-warning btn-sm">Edit</a>
+        <form action="/kolam/{{ $item->id }}" method="POST" id="deleteForm">
+            <a href="/kolam/{{ $item->id }}/edit" class="btn btn-warning btn-sm">Edit</a>
             @csrf
             @method('delete')
-            <button type="submit" onclick="return confirm('Apakah anda yakin menghapus data ini ?')" class="btn btn-danger btn-sm">Hapus</button>
+            <button type="submit" onclick="return confirm('Apakah anda yakin menghapus data ini?')" class="btn btn-danger btn-sm">Hapus</button>
         </form>
       </td>
     </tr>
@@ -51,4 +51,3 @@ Daftar cast
   </tbody>
 </table>
 @endsection
-    
