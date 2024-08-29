@@ -1,7 +1,7 @@
 @extends('layout.master')
 
 @section('judul')
-Daftar Kolam
+Daftar Ikan
 @endsection
 
 @push('script')
@@ -18,31 +18,31 @@ Daftar Kolam
 @endpush
 
 @section('content')
-<a class="btn btn-secondary mb-3" href="/kolam/create">Tambah Data Kolam</a>
+<a class="btn btn-secondary mb-3" href="/ikan/create">Tambah Data Ikan</a>
 <table class="table" id="example1">
   <thead class="thead-dark">
     <tr>
       <th scope="col">#</th>
+      <th scope="col">Nama Ikan</th>
+      <th scope="col">Jenis Ikan</th>
+      <th scope="col">Jumlah Ikan</th>
+      <th scope="col">Berat Rata-Rata (kg)</th>
       <th scope="col">Nama Kolam</th>
-      <th scope="col">Ukuran Kolam (m<sup>2</sup>)</th>
-      <th scope="col">Jenis Kolam</th>
-      <th scope="col">Kapasitas (Ikan)</th>
-      <th scope="col">Status</th>
       <th scope="col">Action</th>
     </tr>
   </thead>
   <tbody>
-    @forelse ($kolam as $key => $item)
+    @forelse ($ikan as $key => $item)
     <tr>
-      <td>{{ $key + 1 }}</td>
-      <td>{{ $item->nama_kolam }}</td>
-      <td>{{ $item->ukuran_kolam }} m<sup>2</sup></td>
-      <td>{{ $item->jenis_kolam }}</td>
-      <td>{{ $item->kapasitas }}</td>
-      <td>{{ $item->status ? 'Aktif' : 'Tidak Aktif' }}</td>
+      <td>{{$key + 1}}</td>
+      <td>{{$item->nama_ikan}}</td>
+      <td>{{$item->jenis_ikan}}</td>
+      <td>{{$item->jumlah}}</td>
+      <td>{{$item->berat_rata_rata}}</td>
+      <td>{{$item->kolam->nama_kolam}}</td>
       <td>
-        <form action="/kolam/{{ $item->id }}" method="POST" id="deleteForm">
-            <a href="/kolam/{{ $item->id }}/edit" class="btn btn-warning btn-sm">Edit</a>
+        <form action="/ikan/{{ $item->id }}" method="POST" id="deleteForm">
+            <a href="/ikan/{{ $item->id }}/edit" class="btn btn-warning btn-sm">Edit</a>
             @csrf
             @method('delete')
             <button type="submit" onclick="return confirm('Apakah anda yakin menghapus data ini?')" class="btn btn-danger btn-sm">Hapus</button>
@@ -50,9 +50,7 @@ Daftar Kolam
       </td>
     </tr>
     @empty
-    <tr>
-      <td colspan="7"><h4>Data tidak ada</h4></td>
-    </tr>
+    <h2>Data tidak ada</h2>
     @endforelse
   </tbody>
 </table>

@@ -2,10 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PagesController;
-use App\Http\Controllers\CastController;
-use App\Http\Controllers\FilmController;
-use App\Http\Controllers\PeranController;
 use App\Http\Controllers\KolamController;
+use App\Http\Controllers\IkanController;
+use App\Http\Controllers\PakanController;
+use App\Http\Controllers\PanenController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,37 +18,9 @@ use App\Http\Controllers\KolamController;
 |
 */
 
-
-// Route::get('/master', function () {
-//     return view('layout.master');
-// });
-
 Route::get('/dashboard', function () {
     return view('dashboard');
 });
-
-Route::get('/forminput', [PagesController::class, 'FormInput']);
-Route::post('/welcome', [PagesController::class, 'Welcome']);
-
-Route::get('/datatable', function () {
-    return view('datatable.index');
-});
-
-// CRUD FILM
-Route::get('/film', [FilmController::class, 'index']);
-Route::get('/film/create', [FilmController::class, 'create']);
-Route::post('/film', [FilmController::class, 'store']);
-Route::get('/film/{film_id}/edit', [FilmController::class, 'edit']);
-Route::put('/film/{film_id}', [FilmController::class, 'update']);
-Route::delete('/film/{film_id}', [FilmController::class, 'destroy']);
-
-// CRUD PERAN
-Route::get('/peran', [PeranController::class, 'index']);
-Route::get('/peran/create', [PeranController::class, 'create']);
-Route::post('/peran', [PeranController::class, 'store']);
-Route::get('/peran/{peran_id}/edit', [PeranController::class, 'edit']);
-Route::put('/peran/{peran_id}', [PeranController::class, 'update']);
-Route::delete('/peran/{peran_id}', [PeranController::class, 'destroy']);
 
 // BERANDA
 Route::get('/', function () {
@@ -68,4 +40,26 @@ Route::get('/kolam/{kolam_id}/edit', [KolamController::class, 'edit']);
 Route::put('/kolam/{kolam_id}', [KolamController::class, 'update']);
 Route::delete('/kolam/{kolam_id}', [KolamController::class, 'destroy']);
 
+// CRUD Ikan
+Route::get('/ikan', [IkanController::class, 'index']);
+Route::get('/ikan/create', [IkanController::class, 'create']);
+Route::post('/ikan', [IkanController::class, 'store']);
+Route::get('/ikan/{ikan_id}/edit', [IkanController::class, 'edit']);
+Route::put('/ikan/{ikan_id}', [IkanController::class, 'update']);
+Route::delete('/ikan/{ikan_id}', [IkanController::class, 'destroy']);
 
+// CRUD Pakan
+Route::get('/pakan', [PakanController::class, 'index']);
+Route::get('/pakan/create', [PakanController::class, 'create']);
+Route::post('/pakan', [PakanController::class, 'store']);
+Route::get('/pakan/{pakan_id}/edit', [PakanController::class, 'edit']);
+Route::put('/pakan/{pakan_id}', [PakanController::class, 'update']);
+Route::delete('/pakan/{pakan_id}', [PakanController::class, 'destroy']);
+
+// CRUD Panen
+Route::get('/panen', [PanenController::class, 'index']);
+Route::get('/panen/create', [PanenController::class, 'create']);
+Route::post('/panen', [PanenController::class, 'store']);
+Route::get('/panen/{panen_id}/edit', [PanenController::class, 'edit']);
+Route::put('/panen/{panen_id}', [PanenController::class, 'update']);
+Route::delete('/panen/{panen_id}', [PanenController::class, 'destroy']);

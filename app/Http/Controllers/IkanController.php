@@ -3,10 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Ikan;
 use App\Models\Kolam;
 use RealRashid\SweetAlert\Facades\Alert;
 
-class KolamController extends Controller
+class IkanController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +16,8 @@ class KolamController extends Controller
      */
     public function index()
     {
-        $kolam = Kolam::all();
-        return view('kolam.index', compact('kolam'));
+        $ikan = Ikan::all();
+        return view('ikan.index', compact('ikan'));
     }
 
     /**
@@ -26,7 +27,8 @@ class KolamController extends Controller
      */
     public function create()
     {
-        return view('kolam.create');
+        $kolam = Kolam::all();
+        return view('ikan.create', compact('kolam'));
     }
 
     /**
@@ -38,29 +40,29 @@ class KolamController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'nama_kolam' => 'required|string|max:100',
-            'ukuran_kolam' => 'required|numeric',
-            'jenis_kolam' => 'required|string',
-            'kapasitas' => 'required|integer',
-            'status' => 'required|boolean',
+            'nama_ikan' => 'required|string|max:255',
+            'jenis_ikan' => 'required|string|max:255',
+            'jumlah' => 'required|integer',
+            'berat_rata_rata' => 'required|numeric',
+            'kolam_id' => 'required|exists:kolam,id',
         ]);
 
-        $kolam = new Kolam([
-            'nama_kolam' => $request->nama_kolam,
-            'ukuran_kolam' => $request->ukuran_kolam,
-            'jenis_kolam' => $request->jenis_kolam,
-            'kapasitas' => $request->kapasitas,
-            'status' => $request->status,
+        $ikan = new Ikan([
+            'nama_ikan' => $request->nama_ikan,
+            'jenis_ikan' => $request->jenis_ikan,
+            'jumlah' => $request->jumlah,
+            'berat_rata_rata' => $request->berat_rata_rata,
+            'kolam_id' => $request->kolam_id,
         ]);
 
-        $simpan = $kolam->save();
+        $simpan = $ikan->save();
 
         if ($simpan) {
             Alert::success('Success', 'Data Berhasil ditambah');
-            return redirect('/kolam');
+            return redirect('/ikan');
         } else {
             Alert::error('Failed', 'Data Gagal ditambah');
-            return redirect('/kolam');
+            return redirect('/ikan');
         }
     }
 
@@ -72,8 +74,9 @@ class KolamController extends Controller
      */
     public function edit($id)
     {
-        $kolam = Kolam::findOrFail($id);
-        return view('kolam.edit', compact('kolam'));
+        $ikan = Ikan::findOrFail($id);
+        $kolam = Kolam::all();
+        return view('ikan.edit', compact('ikan', 'kolam'));
     }
 
     /**
@@ -86,28 +89,28 @@ class KolamController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'nama_kolam' => 'required|string|max:100',
-            'ukuran_kolam' => 'required|numeric',
-            'jenis_kolam' => 'required|string',
-            'kapasitas' => 'required|integer',
-            'status' => 'required|boolean',
+            'nama_ikan' => 'required|string|max:255',
+            'jenis_ikan' => 'required|string|max:255',
+            'jumlah' => 'required|integer',
+            'berat_rata_rata' => 'required|numeric',
+            'kolam_id' => 'required|exists:kolam,id',
         ]);
 
-        $kolam = Kolam::findOrFail($id);
-        $kolam->update([
-            'nama_kolam' => $request->nama_kolam,
-            'ukuran_kolam' => $request->ukuran_kolam,
-            'jenis_kolam' => $request->jenis_kolam,
-            'kapasitas' => $request->kapasitas,
-            'status' => $request->status,
+        $ikan = Ikan::findOrFail($id);
+        $ikan->update([
+            'nama_ikan' => $request->nama_ikan,
+            'jenis_ikan' => $request->jenis_ikan,
+            'jumlah' => $request->jumlah,
+            'berat_rata_rata' => $request->berat_rata_rata,
+            'kolam_id' => $request->kolam_id,
         ]);
 
-        if ($kolam) {
+        if ($ikan) {
             Alert::success('Success', 'Data Berhasil diubah');
-            return redirect('/kolam');
+            return redirect('/ikan');
         } else {
             Alert::error('Failed', 'Data Gagal diubah');
-            return redirect('/kolam');
+            return redirect('/ikan');
         }
     }
 
@@ -119,15 +122,15 @@ class KolamController extends Controller
      */
     public function destroy($id)
     {
-        $kolam = Kolam::findOrFail($id);
-        $hapus = $kolam->delete();
+        $ikan = Ikan::findOrFail($id);
+        $hapus = $ikan->delete();
 
         if ($hapus) {
             Alert::success('Success', 'Data Berhasil dihapus');
-            return redirect('/kolam');
+            return redirect('/ikan');
         } else {
             Alert::error('Failed', 'Data Gagal dihapus');
-            return redirect('/kolam');
+            return redirect('/ikan');
         }
     }
 }

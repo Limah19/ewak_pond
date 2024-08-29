@@ -15,8 +15,10 @@ return new class extends Migration
     {
         Schema::create('kolam', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('nama_kolam', 100); // Mengubah kolom 'judul' menjadi 'nama_kolam' dengan tipe string
-            $table->float('ukuran_kolam'); // Mengubah kolom 'tahun' menjadi 'ukuran_kolam' dengan tipe float
+            $table->string('nama_kolam', 100); // Mengubah kolom 'nama_kolam' dengan tipe string
+            $table->float('ukuran_kolam'); // Mengubah kolom 'ukuran_kolam' dengan tipe float
+            $table->string('jenis_kolam');
+            $table->integer('kapasitas');
             $table->boolean('status'); // Mengubah kolom 'status' menjadi boolean
             $table->timestamps(); // Tetap menggunakan timestamps untuk created_at dan updated_at
         });
