@@ -4,6 +4,26 @@
 Daftar Panen
 @endsection
 
+@push('script')
+<script src="https://cdn.datatables.net/v/bs4/dt-1.13.6/datatables.min.js"></script>
+<script>
+  $(function() {
+    $('#example1').DataTable({
+      "columnDefs": [{
+          "orderable": false,
+          "targets": 7 // Update the column index for Action column
+        } // Disable sorting on Action column
+      ]
+    });
+  });
+</script>
+@endpush
+
+@push('style')
+<link href="https://cdn.datatables.net/v/bs4/dt-1.13.6/datatables.min.css" rel="stylesheet">
+@endpush
+
+
 @section('content')
 <a class="btn btn-secondary mb-3" href="/panen/create">Tambah Data Panen</a>
 <table class="table">
