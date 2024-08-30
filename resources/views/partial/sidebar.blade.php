@@ -22,6 +22,15 @@
           </p>
         </a>
       </li>
+      <li class="nav-item">
+        <a href="/keuangan" class="nav-link">
+          <i class="nav-icon fas fa-wallet"></i>
+          <p>
+          Keuangan
+            <span class="right badge badge-danger"></span>
+          </p>
+        </a>
+      </li>
     </ul>
   </nav>
   <!-- /.sidebar-menu -->

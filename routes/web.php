@@ -6,6 +6,7 @@ use App\Http\Controllers\KolamController;
 use App\Http\Controllers\IkanController;
 use App\Http\Controllers\PakanController;
 use App\Http\Controllers\PanenController;
+use App\Http\Controllers\PemasukanController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,6 +32,11 @@ Route::get('/', function () {
 Route::get('/owner', function () {
     return view('owner');
 }); // ->middleware('auth')
+
+// KEUANGAN
+Route::get('/keuangan', function () {
+    return view('keuangan');
+}); 
 
 // CRUD Kolam
 Route::get('/kolam', [KolamController::class, 'index']);
@@ -63,3 +69,12 @@ Route::post('/panen', [PanenController::class, 'store']);
 Route::get('/panen/{panen_id}/edit', [PanenController::class, 'edit']);
 Route::put('/panen/{panen_id}', [PanenController::class, 'update']);
 Route::delete('/panen/{panen_id}', [PanenController::class, 'destroy']);
+
+// CRUD Pemasukan
+Route::get('/pemasukan', [PemasukanController::class, 'index']);
+Route::get('/pemasukan/create', [PemasukanController::class, 'create']);
+Route::post('/pemasukan', [PemasukanController::class, 'store']);
+Route::get('/pemasukan/{pemasukan_id}/edit', [PemasukanController::class, 'edit']);
+Route::put('/pemasukan/{pemasukan_id}', [PemasukanController::class, 'update']);
+Route::delete('/pemasukan/{pemasukan_id}', [PemasukanController::class, 'destroy']);
+
