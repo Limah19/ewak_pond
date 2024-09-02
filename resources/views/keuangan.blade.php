@@ -51,31 +51,45 @@ Selamat Datang "Rizky Maulana"
     <!-- Statistik -->
     <div class="stat-box">
         <div class="row">
-            <div class="col-lg-3 col-6">
+            <div class="col-lg-20 col-5">
                 <!-- small box -->
                 <div class="small-box bg-info">
                     <div class="inner">
                         <div class="icon">
                             <i class="fas fa-chart-line"></i>
                         </div>
-                        <h3>Pemasukan</h3>
+                        <h3>Pemasukan Hasil Panen</h3>
                     </div>
-                    <a href="/pemasukan" class="small-box-footer">More info<i class="fas fa-arrow-circle-right"></i></a>
+                    <a href="/pemasukann" class="small-box-footer">More info<i class="fas fa-arrow-circle-right"></i></a>
                 </div>
             </div>
             <!-- ./col -->
-            <div class="col-lg-3 col-6">
+            <div class="col-lg-20 col-20">
                 <!-- small box -->
                 <div class="small-box bg-success">
                     <div class="inner">
                         <div class="icon">
                             <i class="fas fa-money-bill-wave"></i>
                         </div>
-                        <h3>Pengeluaran</h3>
+                        <h3>Pengeluaran Untuk Bibit</h3>
                     </div>
                     <a href="/pengeluaran" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                 </div>
             </div>
+            <!-- ./col -->
+            <div class="col-lg-40 col-20">
+                <!-- small box -->
+                <div class="small-box bg-danger">
+                    <div class="inner">
+                        <div class="icon">
+                            <i class="fas fa-box"></i>
+                        </div>
+                        <h3>Pengeluaran Untuk Panen</h3>
+                    </div>
+                    <a href="/pengeluarann" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                </div>
+            </div>
+            <!-- ./col -->
         </div>
     </div>
 </body>

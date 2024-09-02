@@ -6,7 +6,10 @@ use App\Http\Controllers\KolamController;
 use App\Http\Controllers\IkanController;
 use App\Http\Controllers\PakanController;
 use App\Http\Controllers\PanenController;
-use App\Http\Controllers\PemasukanController;
+use App\Http\Controllers\PemasukannController;
+use App\Http\Controllers\PengeluaranController;
+use App\Http\Controllers\PengeluarannController;
+use App\Http\Controllers\LoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,6 +25,15 @@ use App\Http\Controllers\PemasukanController;
 Route::get('/dashboard', function () {
     return view('dashboard');
 });
+
+// LOGIN
+Route::get('/login', function () {
+    return view('Pengguna.login');
+});
+
+// LOGIN2
+Route::post('/postlogin', 'LoginController@postlogin')->name('postlogin');
+Route::post('/postlogin', 'LoginController@postlogin')->name('postlogin');
 
 // BERANDA
 Route::get('/', function () {
@@ -71,10 +83,25 @@ Route::put('/panen/{panen_id}', [PanenController::class, 'update']);
 Route::delete('/panen/{panen_id}', [PanenController::class, 'destroy']);
 
 // CRUD Pemasukan
-Route::get('/pemasukan', [PemasukanController::class, 'index']);
-Route::get('/pemasukan/create', [PemasukanController::class, 'create']);
-Route::post('/pemasukan', [PemasukanController::class, 'store']);
-Route::get('/pemasukan/{pemasukan_id}/edit', [PemasukanController::class, 'edit']);
-Route::put('/pemasukan/{pemasukan_id}', [PemasukanController::class, 'update']);
-Route::delete('/pemasukan/{pemasukan_id}', [PemasukanController::class, 'destroy']);
+Route::get('/pemasukann', [PemasukannController::class, 'index']);
+Route::get('/pemasukann/create', [PemasukannController::class, 'create']);
+Route::post('/pemasukann', [PemasukannController::class, 'store']);
+Route::get('/pemasukann/{pemasukann_id}/edit', [PemasukannController::class, 'edit']);
+Route::put('/pemasukann/{pemasukann_id}', [PemasukannController::class, 'update']);
+Route::delete('/pemasukann/{pemasukann_id}', [PemasukannController::class, 'destroy']);
 
+// CRUD Pengeluaran
+Route::get('/pengeluaran', [PengeluaranController::class, 'index']);
+Route::get('/pengeluaran/create', [PengeluaranController::class, 'create']);
+Route::post('/pengeluaran', [PengeluaranController::class, 'store']);
+Route::get('/pengeluaran/{pengeluaran_id}/edit', [PengeluaranController::class, 'edit']);
+Route::put('/pengeluaran/{pengeluaran_id}', [PengeluaranController::class, 'update']);
+Route::delete('/pengeluaran/{pengeluaran_id}', [PengeluaranController::class, 'destroy']);
+
+// CRUD Pengeluarann
+Route::get('/pengeluarann', [PengeluarannController::class, 'index']);
+Route::get('/pengeluarann/create', [PengeluarannController::class, 'create']);
+Route::post('/pengeluarann', [PengeluarannController::class, 'store']);
+Route::get('/pengeluarann/{pengeluarann_id}/edit', [PengeluarannController::class, 'edit']);
+Route::put('/pengeluarann/{pengeluarann_id}', [PengeluarannController::class, 'update']);
+Route::delete('/pengeluarann/{pengeluarann_id}', [PengeluarannController::class, 'destroy']);

@@ -13,15 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('pemasukan', function (Blueprint $table) {
+        Schema::create('pemasukann', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->date('tanggal_panen');
-            $table->string('nama_ikannya');
-            $table->decimal('harga_per'); // Harga per kg dengan 2 digit desimal
+            $table->string('nama_ikan',200);
+            $table->string('harga_per', 200); // Harga per kg dengan 2 digit desimal
             $table->float('total_berat'); // Total berat dalam kg
-            $table->decimal('pemasukan_kotor'); // Pemasukan kotor dengan 2 digit desimal
-            $table->decimal('total_biaya'); // Total biaya dengan 2 digit desimal
-            $table->decimal('pemasukan_bersih'); // Pemasukan bersih dengan 2 digit desimal
+            $table->string('total_pemasukan', 200); // Total biaya dengan 2 digit desimal
             $table->timestamps();
         });
         
@@ -34,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('pemasukan');
+        Schema::dropIfExists('pemasukann');
     }
 };
