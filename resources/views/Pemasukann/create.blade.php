@@ -28,7 +28,7 @@ Tambah Data Pemasukan Hasil Panen
         <label for="total_berat">Total Berat (kg)</label>
         <input type="number" class="form-control" id="total_berat" name="total_berat" placeholder="Masukkan total berat" required>
       </div>
-      
+
       <div class="form-group">
         <label for="total_biaya">Total Pemasukan</label>
         <input type="number" class="form-control" id="total_pemasukan" name="total_pemasukan" placeholder="Masukkan total pemasukan" required>
