@@ -18,7 +18,6 @@ return new class extends Migration
             $table->string('nama_ikan');
             $table->string('jenis_ikan');
             $table->integer('jumlah');
-            $table->float('berat_rata_rata');
             $table->foreignId('kolam_id')->constrained('kolam')->onDelete('cascade');
             $table->timestamps();
         });

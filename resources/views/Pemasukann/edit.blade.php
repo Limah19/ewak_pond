@@ -1,13 +1,13 @@
 @extends('layout.master')
 
 @section('judul')
-Edit Data Pemasukan Hasil Panen
+Edit Pemasukan Hasil Panen
 @endsection
 
 @section('content')
 <div class="card">
   <div class="card-header">
-    Form Edit Data Pemasukan  Hasil Panen
+    Form Edit Pemasukan Hasil Panen
   </div>
   <div class="card-body">
     <form action="/pemasukann/{{ $pemasukann->id }}" method="POST">

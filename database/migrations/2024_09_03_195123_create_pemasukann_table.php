@@ -14,15 +14,14 @@ return new class extends Migration
     public function up()
     {
         Schema::create('pemasukann', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->bigIncrements('id'); // Sudah auto increment dan primary key
             $table->date('tanggal_panen');
-            $table->string('nama_ikan',200);
-            $table->string('harga_per', 200); // Harga per kg dengan 2 digit desimal
-            $table->float('total_berat'); // Total berat dalam kg
-            $table->string('total_pemasukan', 200); // Total biaya dengan 2 digit desimal
+            $table->string('nama_ikan', 200);
+            $table->string('harga_per', 200);
+            $table->double('total_berat', 8, 2);
+            $table->string('total_pemasukan'); // Hilangkan auto_increment dan primary key di sini
             $table->timestamps();
-        });
-        
+        });        
     }
 
     /**

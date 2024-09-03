@@ -1,7 +1,7 @@
 @extends('layout.master')
 
 @section('judul')
-Daftar Ikan
+Daftar Data Bibit Ikan
 @endsection
 
 @push('script')
@@ -18,7 +18,7 @@ Daftar Ikan
 @endpush
 
 @section('content')
-<a class="btn btn-secondary mb-3" href="/ikan/create">Tambah Data Ikan</a>
+<a class="btn btn-secondary mb-3" href="/ikan/create">Tambah Data Bibit Ikan</a>
 <table class="table" id="example1">
   <thead class="thead-dark">
     <tr>
@@ -26,7 +26,6 @@ Daftar Ikan
       <th scope="col">Nama Ikan</th>
       <th scope="col">Jenis Ikan</th>
       <th scope="col">Jumlah Ikan</th>
-      <th scope="col">Berat Rata-Rata (kg)</th>
       <th scope="col">Nama Kolam</th>
       <th scope="col">Action</th>
     </tr>
@@ -38,7 +37,6 @@ Daftar Ikan
       <td>{{$item->nama_ikan}}</td>
       <td>{{$item->jenis_ikan}}</td>
       <td>{{$item->jumlah}}</td>
-      <td>{{$item->berat_rata_rata}}</td>
       <td>{{$item->kolam->nama_kolam}}</td>
       <td>
         <form action="/ikan/{{ $item->id }}" method="POST" id="deleteForm">

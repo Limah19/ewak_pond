@@ -7,7 +7,7 @@ Tambah Data Pemasukan Hasil Panen
 @section('content')
 <div class="card">
   <div class="card-header">
-    Form Tambah Data Pemasukan Hasil Panen
+    Form Tambah Pemasukan Hasil Panen
   </div>
   <div class="card-body">
     <form action="/pemasukann" method="POST">
@@ -28,6 +28,7 @@ Tambah Data Pemasukan Hasil Panen
         <label for="total_berat">Total Berat (kg)</label>
         <input type="number" class="form-control" id="total_berat" name="total_berat" placeholder="Masukkan total berat" required>
       </div>
+      
       <div class="form-group">
         <label for="total_biaya">Total Pemasukan</label>
         <input type="number" class="form-control" id="total_pemasukan" name="total_pemasukan" placeholder="Masukkan total pemasukan" required>

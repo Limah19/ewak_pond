@@ -15,7 +15,6 @@ class Ikan extends Model
         'nama_ikan',
         'jenis_ikan',
         'jumlah',
-        'berat_rata_rata',
         'kolam_id'
     ];
 

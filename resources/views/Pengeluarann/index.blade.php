@@ -5,12 +5,12 @@ Daftar Pengeluaran Pakan Ikan
 @endsection
 
 @push('script')
-    <script src="https://cdn.datatables.net/v/bs4/dt-1.13.6/datatables.min.js"></script>
-    <script>
-        $(function(){
-            $('#example1').DataTable();
-        });
-    </script>
+<script src="https://cdn.datatables.net/v/bs4/dt-1.13.6/datatables.min.js"></script>
+<script>
+  $(function() {
+    $('#example1').DataTable();
+  });
+</script>
 @endpush
 
 @push('style')
@@ -18,7 +18,7 @@ Daftar Pengeluaran Pakan Ikan
 @endpush
 
 @section('content')
-<a class="btn btn-secondary mb-3" href="/pengeluarann/create">Tambah Data Pengeluaran Pakan Ikan</a>
+<a class="btn btn-secondary mb-3" href="/pengeluarann/create">Tambah Pengeluaran Pakan Ikan</a>
 <table class="table" id="example1">
   <thead class="thead-dark">
     <tr>
@@ -42,17 +42,15 @@ Daftar Pengeluaran Pakan Ikan
       <td>{{ $item->total_biaya }}</td>
       <td>
         <form action="/pengeluarann/{{ $item->id }}" method="POST" id="deleteForm">
-            <a href="/pengeluarann{{ $item->id }}/edit" class="btn btn-warning btn-sm">Edit</a>
-            @csrf
-            @method('delete')
-            <button type="submit" onclick="return confirm('Apakah anda yakin menghapus data ini?')" class="btn btn-danger btn-sm">Hapus</button>
+          <a href="/pengeluarann{{ $item->id }}/edit" class="btn btn-warning btn-sm">Edit</a>
+          @csrf
+          @method('delete')
+          <button type="submit" onclick="return confirm('Apakah anda yakin menghapus data ini?')" class="btn btn-danger btn-sm">Hapus</button>
         </form>
       </td>
     </tr>
     @empty
-    <tr>
-      <td colspan="7"><h4>Data tidak ada</h4></td>
-    </tr>
+    <h2>Data tidak ada</h2>
     @endforelse
   </tbody>
 </table>

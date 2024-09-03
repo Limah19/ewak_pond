@@ -1,10 +1,15 @@
 @extends('layout.master')
 
 @section('judul')
-Tambah Ikan
+Tambah Data Bibit Ikan
 @endsection
 
 @section('content')
+<div class="card">
+  <div class="card-header">
+    Form Tambah Data Bibit Ikan
+  </div>
+  <div class="card-body">
 <form method="post" action="/ikan">
     @csrf
     
@@ -22,7 +27,7 @@ Tambah Ikan
 
     <div class="form-group">
         <label>Nama Ikan</label>
-        <input type="text" name="nama_ikan" value="" class="form-control">
+        <input type="text" name="nama_ikan" value="" class="form-control" placeholder="Masukkan Nama Ikan" required>
     </div>
     @error('nama_ikan')
         <div class="alert alert-danger">{{ $message }}</div>
@@ -30,7 +35,7 @@ Tambah Ikan
 
     <div class="form-group">
         <label>Jenis Ikan</label>
-        <input type="text" name="jenis_ikan" value="" class="form-control">
+        <input type="text" name="jenis_ikan" value="" class="form-control"placeholder="Masukkan Jenis Ikan" required>
     </div>
     @error('jenis_ikan')
         <div class="alert alert-danger">{{ $message }}</div>
@@ -38,20 +43,15 @@ Tambah Ikan
 
     <div class="form-group">
         <label>Jumlah Ikan</label>
-        <input type="number" name="jumlah" value="" class="form-control">
+        <input type="number" name="jumlah" value="Jumlah Ikan" class="form-control"placeholder="Masukkan Jumlah Ikan" required>
     </div>
     @error('jumlah')
         <div class="alert alert-danger">{{ $message }}</div>
     @enderror
 
-    <div class="form-group">
-        <label>Berat Rata-Rata (kg)</label>
-        <input type="number" name="berat_rata_rata" step="0.01" value="" class="form-control">
-    </div>
-    @error('berat_rata_rata')
-        <div class="alert alert-danger">{{ $message }}</div>
-    @enderror
-
     <button type="submit" class="btn btn-primary">Simpan</button>
-</form>
+      <a href="/ikan" class="btn btn-secondary">Kembali</a>
+    </form>
+  </div>
+</div>
 @endsection
