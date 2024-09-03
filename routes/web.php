@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\KolamController;
 use App\Http\Controllers\IkanController;
@@ -27,19 +28,41 @@ Route::get('/dashboard', function () {
 });
 
 // LOGIN
-Route::get('login/', function () {
+Route::get('/login', function () {
     return view('Pengguna.login');
-});
+})->name('login');
+
 
 // LOGIN2
 Route::post('/postlogin', [LoginController::Class, 'postlogin'])->name('postlogin');
+Route::get('/logout', [LoginController::Class, 'logout'])->name('logout');
 
-// //LOGIN
-// Route::get('/', [LoginController::Class, 'login']);
-// Route::post('/login', [LoginController::Class, 'postlogin']);
+Route::middleware(['auth'])->group(function () {
+    // Route group untuk level owner
+    Route::middleware(['ceklevel:admin'])->group(function () {
+        Route::get('/owner', function () {
+            return view('owner.blade'); // Ganti dengan view atau logika Anda
+        })->name('owner');
+
+        // Route::get('/owner', function () {
+        //     return view('owner.keuangan'); // Ganti dengan view atau logika Anda
+        // })->name('owner.keuangan');
+    });
+
+     // Route group untuk level keuangan
+    Route::middleware(['ceklevel:user'])->group(function () {
+        Route::get('/keuangan', function () {
+            return view('keuangan.blade'); // Ganti dengan view atau logika Anda
+        })->name('keuangan');
+
+        Route::get('/beranda', function () {
+            return view('beranda.blade'); // Ganti dengan view atau logika Anda
+        })->name('beranda');
+    });
+});
 
 // BERANDA
-Route::get('/', function () {
+Route::get('/beranda', function () {
     return view('beranda');
 });
 

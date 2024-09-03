@@ -1,7 +1,8 @@
 @extends('layout.master')
 
 @section('judul')
-Selamat Datang "Rizky Maulana"
+<!-- Selamat Datang "Rizky Maulana" -->
+Selamat Datang "{{ Auth::user()->name }}"
 @endsection
 
 @section('content')
