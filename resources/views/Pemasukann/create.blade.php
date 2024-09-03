@@ -31,7 +31,7 @@ Tambah Data Pemasukan Hasil Panen
 
       <div class="form-group">
         <label for="total_biaya">Total Pemasukan</label>
-        <input type="number" class="form-control" id="total_pemasukan" name="total_pemasukan" placeholder="Masukkan total pemasukan" required>
+        <input type="text" class="form-control" id="total_pemasukan" name="total_pemasukan" placeholder="Masukkan total pemasukan" required>
       </div>
       <button type="submit" class="btn btn-primary">Simpan</button>
       <a href="/pemasukann" class="btn btn-secondary">Kembali</a>

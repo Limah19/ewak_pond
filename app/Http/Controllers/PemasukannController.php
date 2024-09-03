@@ -27,7 +27,7 @@ class PemasukannController extends Controller
             'nama_ikan' => 'required|string|max:255',
             'harga_per' => 'required|numeric|min:1',
             'total_berat' => 'required|numeric|min:1',
-            'total_pemasukan' => 'required|numeric|min:0',
+            'total_pemasukan' => 'required|string|max:255',
         ]);
 
         $pemasukann = new Pemasukann;
@@ -61,7 +61,7 @@ class PemasukannController extends Controller
             'nama_ikan' => 'required|string|max:255',
             'harga_per' => 'required|numeric|min:1',
             'total_berat' => 'required|numeric|min:1',
-            'total_pemasukan' => 'required|numeric|min:0',
+            'total_pemasukan' => 'required|string|max:255',
         ]);
 
         $pemasukann = Pemasukann::findOrFail($id);
