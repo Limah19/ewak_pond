@@ -30,7 +30,7 @@
 
     <!-- <form action="{{route('postlogin')}}" method="post"> -->
       <form action="{{route('postlogin')}}" method="post">
-        {{ csrf_field() }}
+        @csrf
         <div class="input-group mb-3">
           <input type="email" class="form-control" name="email" placeholder="Email"> 
           <div class="input-group-append">

@@ -19,7 +19,7 @@ class CreateProfileTable extends Migration
             $table->text('bio');
             $table->text('alamat');
             $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users');                        
+           // $table->foreign('user_id')->references('id')->on('users');                        
             $table->timestamps();
         });
     }

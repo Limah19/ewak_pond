@@ -27,13 +27,16 @@ Route::get('/dashboard', function () {
 });
 
 // LOGIN
-Route::get('/login', function () {
+Route::get('login/', function () {
     return view('Pengguna.login');
 });
 
 // LOGIN2
-Route::post('/postlogin', 'LoginController@postlogin')->name('postlogin');
-Route::post('/postlogin', 'LoginController@postlogin')->name('postlogin');
+Route::post('/postlogin', [LoginController::Class, 'postlogin'])->name('postlogin');
+
+// //LOGIN
+// Route::get('/', [LoginController::Class, 'login']);
+// Route::post('/login', [LoginController::Class, 'postlogin']);
 
 // BERANDA
 Route::get('/', function () {
