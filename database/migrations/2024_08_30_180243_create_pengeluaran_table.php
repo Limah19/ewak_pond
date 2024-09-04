@@ -16,10 +16,11 @@ return new class extends Migration
         Schema::create('pengeluaran', function (Blueprint $table) {
             $table->bigIncrements('id'); // ID unik untuk setiap pengeluaran
             $table->date('tanggal_pembelian'); // Tanggal pembelian
+            $table->string('nama_kolam', 200);
             $table->string('nama_ikan', 100); // Nama ikan
             $table->integer('jumlah_ikan'); // Jumlah ikan
             $table->string('harga_per', 200); // Harga per ekor dengan 2 digit desimal
-            $table->string('total_biaya', 200); // Total biaya dengan 2 digit desimal
+            $table->string('total_biaya'); 
             $table->timestamps(); // Menyimpan waktu pembuatan dan pembaruan data
         });
     }

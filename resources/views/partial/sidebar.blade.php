@@ -17,7 +17,7 @@
         <a href="/owner" class="nav-link">
           <i class="nav-icon fas fa-user-tie"></i>
           <p>
-            Owner
+            Administrasi
             <span class="right badge badge-danger"></span>
           </p>
         </a>
@@ -26,7 +26,7 @@
         <a href="/keuangan" class="nav-link">
           <i class="nav-icon fas fa-wallet"></i>
           <p>
-          Keuangan
+            Keuangan
             <span class="right badge badge-danger"></span>
           </p>
         </a>

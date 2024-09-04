@@ -13,6 +13,7 @@ class Pengeluaran extends Model
 
     protected $fillable = [
         'tanggal_pembelian', // Kolom tanggal pembelian
+        'nama_kolam',
         'nama_ikan',         // Kolom nama ikan
         'jumlah_ikan',       // Kolom jumlah ikan
         'harga_per',         // Kolom harga per ekor

@@ -25,7 +25,7 @@ Daftar Data Kolam
       <th scope="col">#</th>
       <th scope="col">Nama Kolam</th>
       <th scope="col">Ukuran Kolam (m<sup>2</sup>)</th>
-      <th scope="col">Jenis Kolam</th>
+      <th scope="col">Nama Ikan</th>
       <th scope="col">Kapasitas (Ikan)</th>
       <th scope="col">Status</th>
       <th scope="col">Action</th>
@@ -37,7 +37,7 @@ Daftar Data Kolam
       <td>{{ $key + 1 }}</td>
       <td>{{ $item->nama_kolam }}</td>
       <td>{{ $item->ukuran_kolam }} m<sup>2</sup></td>
-      <td>{{ $item->jenis_kolam }}</td>
+      <td>{{ $item->nama_ikan }}</td>
       <td>{{ $item->kapasitas }}</td>
       <td>{{ $item->status ? 'Aktif' : 'Tidak Aktif' }}</td>
       <td>

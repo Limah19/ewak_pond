@@ -31,7 +31,7 @@ Daftar Data Pakan
       <th scope="col">#</th>
       <th scope="col">Nama Pakan</th>
       <th scope="col">Jenis Pakan</th>
-      <th scope="col">Jumlah Pakan (kg)</th>
+      <th scope="col">Jumlah Pakan (kuintal)</th>
       <th scope="col">Nama Kolam</th> <!-- Updated header for Kolam -->
       <th scope="col">Nama Ikan</th>
       <th scope="col">Tanggal Pemberian</th>
@@ -44,7 +44,7 @@ Daftar Data Pakan
       <td>{{ $key + 1 }}</td>
       <td>{{ $item->nama_pakan }}</td>
       <td>{{ $item->jenis_pakan }}</td>
-      <td>{{ $item->jumlah }} kg</td>
+      <td>{{ $item->jumlah }} kuintal</td>
       <td>{{ $item->kolam->nama_kolam }}</td> <!-- Display Kolam name -->
       <td>{{ $item->ikan->nama_ikan }}</td> <!-- Display ikan name from related Ikan model -->
       <td>{{ \Carbon\Carbon::parse($item->tanggal_pemberian)->format('d-m-Y') }}</td>

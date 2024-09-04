@@ -5,9 +5,9 @@ Edit Data Kolam
 @endsection
 
 @section('content')
-<div class="card">
+<div class="card" style="background-color: #99cdd8">
   <div class="card-header">
-    Form Edit Data Kolam
+    <h3>Form Edit Data Kolam</h3>
   </div>
   <div class="card-body">
     <form method="post" action="/kolam/{{ $kolam->id }}">
@@ -31,10 +31,10 @@ Edit Data Kolam
       @enderror
 
       <div class="form-group">
-        <label>Jenis Kolam</label>
-        <input type="text" name="jenis_kolam" value="{{ old('jenis_kolam', $kolam->jenis_kolam) }}" class="form-control">
+        <label>Nama Ikan</label>
+        <input type="text" name="nama_ikan" value="{{ old('nama_ikan', $kolam->nama_ikan) }}" class="form-control">
       </div>
-      @error('jenis_kolam')
+      @error('nama_ikan')
       <div class="alert alert-danger">{{ $message }}</div>
       @enderror
 

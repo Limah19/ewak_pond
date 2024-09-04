@@ -40,7 +40,7 @@ class KolamController extends Controller
         $request->validate([
             'nama_kolam' => 'required|string|max:100',
             'ukuran_kolam' => 'required|numeric',
-            'jenis_kolam' => 'required|string',
+            'nama_ikan' => 'required|string',
             'kapasitas' => 'required|integer',
             'status' => 'required|boolean',
         ]);
@@ -48,7 +48,7 @@ class KolamController extends Controller
         $kolam = new Kolam([
             'nama_kolam' => $request->nama_kolam,
             'ukuran_kolam' => $request->ukuran_kolam,
-            'jenis_kolam' => $request->jenis_kolam,
+            'nama_ikan' => $request->nama_ikan,
             'kapasitas' => $request->kapasitas,
             'status' => $request->status,
         ]);
@@ -88,7 +88,7 @@ class KolamController extends Controller
         $request->validate([
             'nama_kolam' => 'required|string|max:100',
             'ukuran_kolam' => 'required|numeric',
-            'jenis_kolam' => 'required|string',
+            'nama_ikan' => 'required|string',
             'kapasitas' => 'required|integer',
             'status' => 'required|boolean',
         ]);
@@ -97,7 +97,7 @@ class KolamController extends Controller
         $kolam->update([
             'nama_kolam' => $request->nama_kolam,
             'ukuran_kolam' => $request->ukuran_kolam,
-            'jenis_kolam' => $request->jenis_kolam,
+            'nama_ikan' => $request->nama_ikan,
             'kapasitas' => $request->kapasitas,
             'status' => $request->status,
         ]);

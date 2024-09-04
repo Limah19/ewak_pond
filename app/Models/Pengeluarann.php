@@ -13,6 +13,7 @@ class Pengeluarann extends Model
 
     protected $fillable = [
         'tanggal_pembelian',
+        'nama_kolam',
         'jenis_pakan',
         'jumlah_pakan',
         'harga_per',

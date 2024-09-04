@@ -18,6 +18,10 @@ Edit Pemasukan Hasil Panen
         <input type="date" class="form-control" id="tanggal_panen" name="tanggal_panen" value="{{ $pemasukann->tanggal_panen }}" required>
       </div>
       <div class="form-group">
+        <label for="nama_kolam">Nama Kolam</label>
+        <input type="text" class="form-control" id="nama_kolam" name="nama_kolam" value="{{ $pemasukann->nama_kolam }}" placeholder="Masukkan nama kolam" required>
+      </div>
+      <div class="form-group">
         <label for="nama_ikan">Nama Ikan</label>
         <input type="text" class="form-control" id="nama_ikan" name="nama_ikan" value="{{ $pemasukann->nama_ikan }}" placeholder="Masukkan nama ikan" required>
       </div>
@@ -31,7 +35,7 @@ Edit Pemasukan Hasil Panen
       </div>
       <div class="form-group">
         <label for="total_pemasukan">Total Pemasukan</label>
-        <input type="text" class="form-control" id="total_pemasukan" name="total_pemasukan" value="{{ $pemasukann->total_pemasukan }}" placeholder="Masukkan total pemasukan" required>
+        <input type="number" class="form-control" id="total_pemasukan" name="total_pemasukan" value="{{ $pemasukann->total_pemasukan }}" placeholder="Masukkan total pemasukan" required>
       </div>
       <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
       <a href="/pemasukann" class="btn btn-secondary">Kembali</a>

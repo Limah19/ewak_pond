@@ -24,6 +24,7 @@ Daftar Pengeluaran Bibit Ikan
     <tr>
       <th scope="col">#</th>
       <th scope="col">Tanggal Pembelian</th>
+      <th scope="col">Nama Kolam</th>
       <th scope="col">Nama Ikan</th>
       <th scope="col">Jumlah Ikan</th>
       <th scope="col">Harga per Ekor</th>
@@ -36,10 +37,11 @@ Daftar Pengeluaran Bibit Ikan
     <tr>
       <td>{{ $key + 1 }}</td>
       <td>{{ \Carbon\Carbon::parse($item->tanggal_pembelian)->format('d-m-Y') }}</td>
+      <td>{{ $item->nama_kolam }}</td>
       <td>{{ $item->nama_ikan }}</td>
       <td>{{ $item->jumlah_ikan }}</td>
       <td>{{ $item->harga_per }} /ekor</td>
-      <td>{{ $item->total_biaya }}</td>
+      <td>{{ $item->total_biaya }}.000</td>
       <td>
         <form action="/pengeluaran/{{ $item->id }}" method="POST">
           <a href="/pengeluaran/{{ $item->id }}/edit" class="btn btn-warning btn-sm">Edit</a>

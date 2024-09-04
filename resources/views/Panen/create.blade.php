@@ -5,10 +5,10 @@ Tambah Data Panen
 @endsection
 
 @section('content')
-<div class="card">
-    <div class="card-header">
-        Form Tambah Data Panen
-    </div>
+<div class="card" style="background-color: #99cdd8">
+  <div class="card-header">
+    <h3>Form Tambah Data Panen</h3>
+  </div>
     <div class="card-body">
         <form method="post" action="/panen">
             @csrf
@@ -53,8 +53,8 @@ Tambah Data Panen
             @enderror
 
             <div class="form-group">
-                <label>Total Berat Ikan (kg)</label>
-                <input type="number" step="0.01" name="total_berat" value="{{ old('total_berat') }}" class="form-control" placeholder="Masukkan Total Berat Ikan (kg)" required>
+                <label>Total Berat Ikan (ton)</label>
+                <input type="number" step="0.01" name="total_berat" value="{{ old('total_berat') }}" class="form-control" placeholder="Masukkan Total Berat Ikan (ton)" required>
             </div>
             @error('total_berat')
             <div class="alert alert-danger">{{ $message }}</div>

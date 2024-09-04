@@ -24,14 +24,16 @@ class PemasukannController extends Controller
     {
         $request->validate([
             'tanggal_panen' => 'required|date',
+            'nama_kolam' => 'required|string|max:255',
             'nama_ikan' => 'required|string|max:255',
             'harga_per' => 'required|numeric|min:1',
             'total_berat' => 'required|numeric|min:1',
-            'total_pemasukan' => 'required|string|max:255',
+            'total_pemasukan' => 'required|numeric|min:1',
         ]);
 
         $pemasukann = new Pemasukann;
         $pemasukann->tanggal_panen = $request->tanggal_panen;
+        $pemasukann->nama_kolam = $request->nama_kolam;
         $pemasukann->nama_ikan = $request->nama_ikan;
         $pemasukann->harga_per = $request->harga_per;
         $pemasukann->total_berat = $request->total_berat;
@@ -58,14 +60,16 @@ class PemasukannController extends Controller
     {
         $request->validate([
             'tanggal_panen' => 'required|date',
+            'nama_kolam' => 'required|string|max:255',
             'nama_ikan' => 'required|string|max:255',
             'harga_per' => 'required|numeric|min:1',
             'total_berat' => 'required|numeric|min:1',
-            'total_pemasukan' => 'required|string|max:255',
+            'total_pemasukan' => 'required|numeric|min:1',
         ]);
 
         $pemasukann = Pemasukann::findOrFail($id);
         $pemasukann->tanggal_panen = $request->tanggal_panen;
+        $pemasukann->nama_kolam = $request->nama_kolam;
         $pemasukann->nama_ikan = $request->nama_ikan;
         $pemasukann->harga_per = $request->harga_per;
         $pemasukann->total_berat = $request->total_berat;

@@ -5,10 +5,10 @@ Edit Data Panen
 @endsection
 
 @section('content')
-<div class="card">
-    <div class="card-header">
-        Form Edit Data Panen
-    </div>
+<div class="card" style="background-color: #99cdd8">
+  <div class="card-header">
+    <h3>Form Edit Data Panen</h3>
+  </div>
     <div class="card-body">
         <form method="post" action="/panen/{{ $panen->id }}">
             @csrf
@@ -59,7 +59,7 @@ Edit Data Panen
             @enderror
 
             <div class="form-group">
-                <label>Total Berat (kg)</label>
+                <label>Total Berat (ton)</label>
                 <input type="number" step="0.01" name="total_berat" value="{{ old('total_berat', $panen->total_berat) }}" class="form-control">
             </div>
             @error('total_berat')

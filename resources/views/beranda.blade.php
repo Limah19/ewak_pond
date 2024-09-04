@@ -30,7 +30,8 @@ Selamat Datang di Ewak Pond
             display: flex;
             align-items: center;
             padding: 20px;
-            background-color: #f9f9f9;
+            background-color: #99cdd8;
+            border-radius: 10px;
         }
 
         .header-container img {
@@ -49,18 +50,21 @@ Selamat Datang di Ewak Pond
         .text-container h1 {
             margin: 0;
             font-size: 50px;
+            font-style: bold;
+            color: #32373b;
         }
 
         .text-container h6 {
             margin: 0;
             font-size: 16px;
+            color: #32373b;
         }
 
         .slider-container {
             margin: 20px auto;
             padding: 20px;
             max-width: 1200px;
-            background-color: #22303F;
+            background-color: #99cdd8;;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             border-radius: 8px;
         }

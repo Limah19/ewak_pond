@@ -24,14 +24,16 @@ class PengeluaranController extends Controller
     {
         $request->validate([
             'tanggal_pembelian' => 'required|date',
+            'nama_kolam' => 'required|string|max:255',
             'nama_ikan' => 'required|string|max:255',
             'jumlah_ikan' => 'required|integer|min:1',
             'harga_per' => 'required|numeric|min:1',
-            'total_biaya' => 'required|numeric|min:0',
+            'total_biaya' => 'required|string|max:255',
         ]);
 
         $pengeluaran = new Pengeluaran;
         $pengeluaran->tanggal_pembelian = $request->tanggal_pembelian;
+        $pengeluaran->nama_kolam = $request->nama_kolam;
         $pengeluaran->nama_ikan = $request->nama_ikan;
         $pengeluaran->jumlah_ikan = $request->jumlah_ikan;
         $pengeluaran->harga_per = $request->harga_per;
@@ -58,14 +60,16 @@ class PengeluaranController extends Controller
     {
         $request->validate([
             'tanggal_pembelian' => 'required|date',
+            'nama_kolam' => 'required|string|max:255',
             'nama_ikan' => 'required|string|max:255',
             'jumlah_ikan' => 'required|integer|min:1',
             'harga_per' => 'required|numeric|min:1',
-            'total_biaya' => 'required|numeric|min:0',
+            'total_biaya' => 'required|string|max:255',
         ]);
 
         $pengeluaran = Pengeluaran::findOrFail($id);
         $pengeluaran->tanggal_pembelian = $request->tanggal_pembelian;
+        $pengeluaran->nama_kolam = $request->nama_kolam;
         $pengeluaran->nama_ikan = $request->nama_ikan;
         $pengeluaran->jumlah_ikan = $request->jumlah_ikan;
         $pengeluaran->harga_per = $request->harga_per;

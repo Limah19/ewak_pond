@@ -38,6 +38,13 @@ Selamat Datang "Rizky Maulana"
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             margin-top: 20px;
         }
+
+        .custom-box-icon {
+            background-color: #32373b;
+            /* Warna default */
+            color: #fff;
+            /* Warna ikon atau teks di dalamnya */
+        }
     </style>
 </head>
 
@@ -52,9 +59,10 @@ Selamat Datang "Rizky Maulana"
     <!-- <div class="stat-box"> -->
     <div class="row">
         <div class="col-12 col-sm-6 col-md-3">
-            <div class="info-box">
-                <span class="info-box-icon bg-info elevation-1"><i class="fas fa-chart-line"></i></span>
-
+            <div class="info-box" style="background-color: #99cdd8;">
+                <span class="info-box-icon custom-box-icon elevation-1">
+                    <i class="fas fa-chart-line"></i>
+                </span>
                 <div class="info-box-content">
                     <h4>Pemasukan</h4>
                     <span class="info-box-number">
@@ -68,8 +76,10 @@ Selamat Datang "Rizky Maulana"
         </div>
         <!-- /.col -->
         <div class="col-12 col-sm-6 col-md-3">
-            <div class="info-box mb-3">
-                <span class="info-box-icon bg-danger elevation-1"><i class="fas fa-chart-bar"></i></span>
+            <div class="info-box mb-3" style="background-color: #99cdd8;">
+                <span class="info-box-icon custom-box-icon elevation-1">
+                    <i class="fas fa-chart-bar"></i>
+                </span>
                 <div class="info-box-content">
                     <h4>Pengeluaran</h4>
                     <span class="info-box-number">Pakan Ikan</span>
@@ -85,8 +95,10 @@ Selamat Datang "Rizky Maulana"
         <div class="clearfix hidden-md-up"></div>
 
         <div class="col-12 col-sm-6 col-md-3">
-            <div class="info-box mb-3">
-                <span class="info-box-icon bg-success elevation-1"><i class="fas fa-fish"></i></span>
+            <div class="info-box mb-3" style="background-color: #99cdd8;">
+                <span class="info-box-icon custom-box-icon elevation-1">
+                    <i class="fas fa-fish"></i>
+                </span>
 
                 <div class="info-box-content">
                     <h4>Pengeluaran</h4>

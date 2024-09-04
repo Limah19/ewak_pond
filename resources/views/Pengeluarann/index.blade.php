@@ -24,6 +24,7 @@ Daftar Pengeluaran Pakan Ikan
     <tr>
       <th scope="col">#</th>
       <th scope="col">Tanggal Pembelian</th>
+      <th scope="col">Nama Kolam</th>
       <th scope="col">Jenis Pakan</th>
       <th scope="col">Jumlah Pakan (kg)</th>
       <th scope="col">Harga per (kg)</th>
@@ -36,17 +37,18 @@ Daftar Pengeluaran Pakan Ikan
     <tr>
       <td>{{ $key + 1 }}</td>
       <td>{{ $item->tanggal_pembelian }}</td>
+      <td>{{ $item->nama_kolam }}</td>
       <td>{{ $item->jenis_pakan }}</td>
       <td>{{ $item->jumlah_pakan }}</td>
-      <td>{{ $item->harga_per }}</td>
+      <td>{{ $item->harga_per }} /kg</td>
       <td>{{ $item->total_biaya }}</td>
       <td>
-        <form action="/pengeluarann/{{ $item->id }}" method="POST" id="deleteForm">
-          <a href="/pengeluarann{{ $item->id }}/edit" class="btn btn-warning btn-sm">Edit</a>
+      <form action="/pengeluarann/{{ $item->id }}" method="POST">
+          <a href="/pengeluarann/{{ $item->id }}/edit" class="btn btn-warning btn-sm">Edit</a>
           @csrf
           @method('delete')
           <button type="submit" onclick="return confirm('Apakah anda yakin menghapus data ini?')" class="btn btn-danger btn-sm">Hapus</button>
-        </form>
+          </form>
       </td>
     </tr>
     @empty

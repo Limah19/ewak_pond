@@ -18,6 +18,10 @@ Edit Data Pengeluaran Untuk Bibit
         <input type="date" class="form-control" id="tanggal_pembelian" name="tanggal_pembelian" value="{{ $pengeluaran->tanggal_pembelian }}" required>
       </div>
       <div class="form-group">
+        <label for="nama_kolam">Nama Kolam</label>
+        <input type="text" class="form-control" id="nama_kolam" name="nama_kolam" value="{{ $pengeluaran->nama_kolam }}" placeholder="Masukkan nama kolam" required>
+      </div>
+      <div class="form-group">
         <label for="nama_ikan">Nama Ikan</label>
         <input type="text" class="form-control" id="nama_ikan" name="nama_ikan" value="{{ $pengeluaran->nama_ikan }}" placeholder="Masukkan nama ikan" required>
       </div>
@@ -31,7 +35,7 @@ Edit Data Pengeluaran Untuk Bibit
       </div>
       <div class="form-group">
         <label for="total_biaya">Total Biaya</label>
-        <input type="number" class="form-control" id="total_biaya" name="total_biaya" value="{{ $pengeluaran->total_biaya }}" placeholder="Masukkan total biaya" required>
+        <input type="text" class="form-control" id="total_biaya" name="total_biaya" value="{{ $pengeluaran->total_biaya }}" placeholder="Masukkan total biaya" required>
       </div>
       <button type="submit" class="btn btn-primary">Simpan</button>
       <a href="/pengeluaran" class="btn btn-secondary">Kembali</a>

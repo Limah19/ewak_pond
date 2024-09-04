@@ -32,7 +32,7 @@ Route::get('login/', function () {
 });
 
 // LOGIN2
-Route::post('/postlogin', [LoginController::Class, 'postlogin'])->name('postlogin');
+Route::post('/postlogin', [LoginController::class, 'postlogin'])->name('postlogin');
 
 // //LOGIN
 // Route::get('/', [LoginController::Class, 'login']);
