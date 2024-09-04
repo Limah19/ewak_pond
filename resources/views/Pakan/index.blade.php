@@ -44,7 +44,7 @@ Daftar Data Pakan
       <td>{{ $key + 1 }}</td>
       <td>{{ $item->nama_pakan }}</td>
       <td>{{ $item->jenis_pakan }}</td>
-      <td>{{ $item->jumlah }} kuintal</td>
+      <td>{{ $item->jumlah_pakan }} kuintal</td>
       <td>{{ $item->kolam->nama_kolam }}</td> <!-- Display Kolam name -->
       <td>{{ $item->ikan->nama_ikan }}</td> <!-- Display ikan name from related Ikan model -->
       <td>{{ \Carbon\Carbon::parse($item->tanggal_pemberian)->format('d-m-Y') }}</td>

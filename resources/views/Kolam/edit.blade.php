@@ -39,10 +39,10 @@ Edit Data Kolam
       @enderror
 
       <div class="form-group">
-        <label>Kapasitas (Ikan)</label>
-        <input type="number" name="kapasitas" value="{{ old('kapasitas', $kolam->kapasitas) }}" class="form-control">
+        <label>jumlah Ikan</label>
+        <input type="number" name="jumlah_ikan" value="{{ old('jumlah_ikan', $kolam->jumlah_ikan) }}" class="form-control">
       </div>
-      @error('kapasitas')
+      @error('jumlah_ikan')
       <div class="alert alert-danger">{{ $message }}</div>
       @enderror
 

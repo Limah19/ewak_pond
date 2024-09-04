@@ -37,10 +37,10 @@ Tambah Data Kolam
       @enderror
 
       <div class="form-group">
-        <label>Kapasitas (Ikan)</label>
-        <input type="number" name="kapasitas" value="{{ old('kapasitas') }}" class="form-control" placeholder="Masukkan Kapasitas (Ikan)" required>
+        <label>Jumlah Ikan</label>
+        <input type="number" name="jumlah_ikan" value="{{ old('jumlah_ikan') }}" class="form-control" placeholder="Masukkan Jumlah Ikan" required>
       </div>
-      @error('kapasitas')
+      @error('jumlah_ikan')
       <div class="alert alert-danger">{{ $message }}</div>
       @enderror
 

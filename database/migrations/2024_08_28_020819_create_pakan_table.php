@@ -17,7 +17,7 @@ return new class extends Migration
             $table->bigIncrements('id');
             $table->string('nama_pakan');
             $table->string('jenis_pakan');
-            $table->float('jumlah');
+            $table->float('jumlah_pakan');
             $table->foreignId('ikan_id')->constrained('ikan')->onDelete('cascade');
             $table->foreignId('kolam_id')->constrained('kolam')->onDelete('cascade'); // Menambahkan kolam_id
             $table->date('tanggal_pemberian');            

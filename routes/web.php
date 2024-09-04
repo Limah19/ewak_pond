@@ -1,13 +1,12 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\PagesController;
 use App\Http\Controllers\KolamController;
 use App\Http\Controllers\IkanController;
 use App\Http\Controllers\PakanController;
 use App\Http\Controllers\PanenController;
 use App\Http\Controllers\PemasukannController;
-use App\Http\Controllers\PengeluaranController;
+use App\Http\Controllers\PengeluaranPakanController;
 use App\Http\Controllers\PengeluarannController;
 use App\Http\Controllers\LoginController;
 
@@ -93,13 +92,12 @@ Route::get('/pemasukann/{pemasukann_id}/edit', [PemasukannController::class, 'ed
 Route::put('/pemasukann/{pemasukann_id}', [PemasukannController::class, 'update']);
 Route::delete('/pemasukann/{pemasukann_id}', [PemasukannController::class, 'destroy']);
 
-// CRUD Pengeluaran
-Route::get('/pengeluaran', [PengeluaranController::class, 'index']);
-Route::get('/pengeluaran/create', [PengeluaranController::class, 'create']);
-Route::post('/pengeluaran', [PengeluaranController::class, 'store']);
-Route::get('/pengeluaran/{pengeluaran_id}/edit', [PengeluaranController::class, 'edit']);
-Route::put('/pengeluaran/{pengeluaran_id}', [PengeluaranController::class, 'update']);
-Route::delete('/pengeluaran/{pengeluaran_id}', [PengeluaranController::class, 'destroy']);
+// CRUD Pengeluaran Pakan
+Route::get('/pengeluaran-pakan', [PengeluaranPakanController::class, 'index'])->name('pengeluaran_pakan.index');
+Route::post('/pengeluaran-pakan', [PengeluaranPakanController::class, 'store'])->name('pengeluaran_pakan.store');
+Route::get('/pengeluaran-pakan/{id}/edit', [PengeluaranPakanController::class, 'edit'])->name('pengeluaran_pakan.edit');
+Route::put('/pengeluaran-pakan/{id}', [PengeluaranPakanController::class, 'update'])->name('pengeluaran_pakan.update');
+Route::delete('/pengeluaran-pakan/{id}', [PengeluaranPakanController::class, 'destroy'])->name('pengeluaran_pakan.destroy');
 
 // CRUD Pengeluarann
 Route::get('/pengeluarann', [PengeluarannController::class, 'index']);

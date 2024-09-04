@@ -32,7 +32,7 @@ class PakanController extends Controller
             'ikan_id' => 'required|exists:ikan,id',
             'kolam_id' => 'required|exists:kolam,id',
             'jenis_pakan' => 'required|string|max:255',
-            'jumlah' => 'required|numeric|min:1',
+            'jumlah_pakan' => 'required|numeric|min:1',
             'tanggal_pemberian' => 'required|date',
         ]);
 
@@ -41,7 +41,7 @@ class PakanController extends Controller
             'ikan_id' => $request->ikan_id,
             'kolam_id' => $request->kolam_id,
             'jenis_pakan' => $request->jenis_pakan,
-            'jumlah' => $request->jumlah,
+            'jumlah_pakan' => $request->jumlah_pakan,
             'tanggal_pemberian' => $request->tanggal_pemberian,
         ]);
 
@@ -72,7 +72,7 @@ class PakanController extends Controller
             'ikan_id' => 'required|exists:ikan,id',
             'kolam_id' => 'required|exists:kolam,id',
             'jenis_pakan' => 'required|string|max:255',
-            'jumlah' => 'required|numeric|min:1',
+            'jumlah_pakan' => 'required|numeric|min:1',
             'tanggal_pemberian' => 'required|date',
         ]);
 
@@ -82,7 +82,7 @@ class PakanController extends Controller
             'ikan_id' => $request->ikan_id,
             'kolam_id' => $request->kolam_id,
             'jenis_pakan' => $request->jenis_pakan,
-            'jumlah' => $request->jumlah,
+            'jumlah_pakan' => $request->jumlah_pakan,
             'tanggal_pemberian' => $request->tanggal_pemberian,
         ]);
 

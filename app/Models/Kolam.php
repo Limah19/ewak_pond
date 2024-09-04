@@ -15,7 +15,7 @@ class Kolam extends Model
         'nama_kolam',
         'ukuran_kolam',
         'nama_ikan',
-        'kapasitas',
+        'jumlah_ikan',
         'status'
     ];
 }

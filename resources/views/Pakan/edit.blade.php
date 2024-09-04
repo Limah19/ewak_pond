@@ -50,9 +50,9 @@ Edit Data Pakan
 
             <div class="form-group">
                 <label>Jumlah Pakan (kuintal)</label>
-                <input type="number" name="jumlah" id="jumlah_pakan" value="{{ old('jumlah', $pakan->jumlah) }}" class="form-control">
+                <input type="number" name="jumlah_pakan" id="jumlah_pakan" value="{{ old('jumlah_pakan', $pakan->jumlah_pakan) }}" class="form-control">
             </div>
-            @error('jumlah')
+            @error('jumlah_pakan')
             <div class="alert alert-danger">{{ $message }}</div>
             @enderror
 

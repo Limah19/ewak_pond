@@ -41,7 +41,7 @@ class KolamController extends Controller
             'nama_kolam' => 'required|string|max:100',
             'ukuran_kolam' => 'required|numeric',
             'nama_ikan' => 'required|string',
-            'kapasitas' => 'required|integer',
+            'jumlah_ikan' => 'required|integer',
             'status' => 'required|boolean',
         ]);
 
@@ -49,7 +49,7 @@ class KolamController extends Controller
             'nama_kolam' => $request->nama_kolam,
             'ukuran_kolam' => $request->ukuran_kolam,
             'nama_ikan' => $request->nama_ikan,
-            'kapasitas' => $request->kapasitas,
+            'jumlah_ikan' => $request->jumlah_ikan,
             'status' => $request->status,
         ]);
 
@@ -89,7 +89,7 @@ class KolamController extends Controller
             'nama_kolam' => 'required|string|max:100',
             'ukuran_kolam' => 'required|numeric',
             'nama_ikan' => 'required|string',
-            'kapasitas' => 'required|integer',
+            'jumlah_ikan' => 'required|integer',
             'status' => 'required|boolean',
         ]);
 
@@ -98,7 +98,7 @@ class KolamController extends Controller
             'nama_kolam' => $request->nama_kolam,
             'ukuran_kolam' => $request->ukuran_kolam,
             'nama_ikan' => $request->nama_ikan,
-            'kapasitas' => $request->kapasitas,
+            'jumlah_ikan' => $request->jumlah_ikan,
             'status' => $request->status,
         ]);
 

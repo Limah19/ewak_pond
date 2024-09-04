@@ -23,9 +23,9 @@ Daftar Data Bibit Ikan
   <thead class="thead-dark">
     <tr>
       <th scope="col">#</th>
-      <th scope="col">Nama Ikan</th>
-      <th scope="col">Jenis Ikan</th>
-      <th scope="col">Jumlah Ikan</th>
+      <th scope="col">Nama Bibit Ikan</th>
+      <th scope="col">Jenis Bibit Ikan</th>
+      <th scope="col">Jumlah Bibit Ikan</th>
       <th scope="col">Nama Kolam</th>
       <th scope="col">Action</th>
     </tr>

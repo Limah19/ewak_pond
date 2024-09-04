@@ -46,9 +46,9 @@ Tambah Data Pakan
 
             <div class="form-group">
                 <label>Jumlah Pakan (kuintal)</label>
-                <input type="number" name="jumlah" id="jumlah_pakan" value="{{ old('jumlah') }}" class="form-control" placeholder="Masukkan Jumlah Pakan (ton)" required>
+                <input type="number" name="jumlah_pakan" id="jumlah_pakan" value="{{ old('jumlah_pakan') }}" class="form-control" placeholder="Masukkan Jumlah Pakan (ton)" required>
             </div>
-            @error('jumlah')
+            @error('jumlah_pakan')
             <div class="alert alert-danger">{{ $message }}</div>
             @enderror
 
