@@ -68,7 +68,7 @@ Selamat Datang "Rizky Maulana"
                     <span class="info-box-number">
                         Hasil Panen
                     </span>
-                    <a href="/pemasukann" class="small-box-footer">More info<i class="fas fa-arrow-circle-right"></i></a>
+                    <a href="/pemasukanpanen" class="small-box-footer">More info<i class="fas fa-arrow-circle-right"></i></a>
                 </div>
                 <!-- /.info-box-content -->
             </div>
