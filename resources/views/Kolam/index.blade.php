@@ -1,7 +1,7 @@
 @extends('layout.master')
 
 @section('judul')
-Daftar Kolam
+Daftar Data Kolam
 @endsection
 
 @push('script')
@@ -46,13 +46,11 @@ Daftar Kolam
             @csrf
             @method('delete')
             <button type="submit" onclick="return confirm('Apakah anda yakin menghapus data ini?')" class="btn btn-danger btn-sm">Hapus</button>
-        </form>
+            </form>
       </td>
     </tr>
     @empty
-    <tr>
-      <td colspan="7"><h4>Data tidak ada</h4></td>
-    </tr>
+    <h2>Data tidak ada</h2>
     @endforelse
   </tbody>
 </table>

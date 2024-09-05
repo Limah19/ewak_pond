@@ -1,7 +1,7 @@
 @extends('layout.master')
 
 @section('judul')
-Daftar Pakan
+Daftar Data Pakan
 @endsection
 
 @push('script')
@@ -33,7 +33,7 @@ Daftar Pakan
       <th scope="col">Jenis Pakan</th>
       <th scope="col">Jumlah Pakan (kg)</th>
       <th scope="col">Nama Kolam</th> <!-- Updated header for Kolam -->
-      <th scope="col">Jumlah Ikan</th>
+      <th scope="col">Nama Ikan</th>
       <th scope="col">Tanggal Pemberian</th>
       <th scope="col">Action</th>
     </tr>
@@ -46,7 +46,7 @@ Daftar Pakan
       <td>{{ $item->jenis_pakan }}</td>
       <td>{{ $item->jumlah }} kg</td>
       <td>{{ $item->kolam->nama_kolam }}</td> <!-- Display Kolam name -->
-      <td>{{ $item->ikan->jumlah }}</td> <!-- Display jumlah ikan from related Ikan model -->
+      <td>{{ $item->ikan->nama_ikan }}</td> <!-- Display ikan name from related Ikan model -->
       <td>{{ \Carbon\Carbon::parse($item->tanggal_pemberian)->format('d-m-Y') }}</td>
       <td>
         <form action="/pakan/{{ $item->id }}" method="POST" id="deleteForm">
@@ -58,9 +58,7 @@ Daftar Pakan
       </td>
     </tr>
     @empty
-    <tr>
-      <td colspan="8" class="text-center">Data tidak ada</td> <!-- Updated colspan -->
-    </tr>
+    <h2>Data tidak ada</h2>
     @endforelse
   </tbody>
 </table>

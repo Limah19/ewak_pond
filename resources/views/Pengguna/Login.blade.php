@@ -14,20 +14,70 @@
   <link rel="stylesheet" href="{{ asset('admin/plugins/icheck-bootstrap/icheck-bootstrap.min.css') }}">
   <!-- Theme style -->
   <link rel="stylesheet" href="{{ asset('admin/dist/css/adminlte.min.css') }}">
+
+ <!-- Styles -->
+  <style>
+.logo-atas{
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+/* resources/css/app.css */
+.login-logo-bawah {
+    display: flex;
+    justify-content: center; /* Mengatur gambar agar berada di tengah */
+    gap: 20px; /* Jarak antar gambar */
+    margin-top: 5px; /* Jarak dari elemen di atasnya */
+}
+
+.login-logo-bawah img {
+    width: 50px; /* Atur lebar gambar */
+    height: auto; /* Biarkan tinggi menyesuaikan secara proporsional */
+    max-width: 100%; /* Mencegah gambar melampaui ukuran kontainer */
+}
+
+/* resources/css/app.css */
+.login-page {
+    background-color: #99cdd8; /* Ganti dengan kode warna yang diinginkan */
+    min-height: 100vh; /* Agar background menutupi seluruh tinggi halaman */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Warna latar belakang tombol Sign Up */
+.btn-primary{
+    background-color: #99cdd8; /* Ganti dengan warna yang Anda inginkan */
+    border: none; /* Menghilangkan border default */
+   
+}
+/* Mengubah warna teks login-title */
+.login-logo{
+    font-weight: bold; /*Membuat teks menjadi tebal */
+}
+
+
+
+
+</style>
+
 </head>
 <body class="hold-transition login-page">
 <div class="login-box">
   <div class="login-logo">
-    <a href="#"><b>Admin</b>LTE</a>
+    <a href=><b>SISTEM INFORMASI Pengolahan Data Ikan</b></a>
   </div>
+   <!-- Gambar di bagian atas halaman login -->
+ <div class="logo-atas">
+ <img src="{{ asset('admin/dist/img/EwakLogo.png') }}"  alt=" Ewak Logo" style="width: 100px;">
+        </div>
+    </div>
   <!-- /.login-logo -->
   <div class="card">
     <div class="card-body login-card-body">
       <p class="login-box-msg">Sign in to start your session</p>
 
-    
-
-
+  
     <!-- <form action="{{route('postlogin')}}" method="post"> -->
       <form action="{{route('postlogin')}}" method="post">
         @csrf
@@ -57,35 +107,22 @@
             </div>
           </div>
           <!-- /.col -->
-          <div class="col-4">
+          <div class="col-3a">
             <button type="submit" class="btn btn-primary btn-block">Sign In</button>
           </div>
           <!-- /.col -->
         </div>
       </form>
-
-      <!-- <div class="social-auth-links text-center mb-3">
-        <p>- OR -</p>
-        <a href="#" class="btn btn-block btn-primary">
-          <i class="fab fa-facebook mr-2"></i> Sign in using Facebook
-        </a>
-        <a href="#" class="btn btn-block btn-danger">
-          <i class="fab fa-google-plus mr-2"></i> Sign in using Google+
-        </a>
-      </div>
-      /.social-auth-links -->
-
-      <p class="mb-1">
-        <a href="forgot-password.html">I forgot my password</a>
-      </p>
-      <!-- <p class="mb-0">
-        <a href="register.html" class="text-center">Register a new membership</a>
-      </p>
-    </div> -->
-    <!-- /.login-card-body -->
   </div>
 </div>
 <!-- /.login-box -->
+
+     <!-- Gambar di bagian bawah halaman login -->
+    <div class="login-logo-bawah">
+    <img src="{{ asset('admin/dist/img/UTILogo.png') }}" alt="Wuri Logo">
+    <img src="{{ asset('admin/dist/img/WuriLogo.png') }}" alt="UTI Logo">
+</div>
+
 
 <!-- jQuery -->
 <script src="{{ asset('admin/plugins/jquery/jquery.min.js') }}"></script>

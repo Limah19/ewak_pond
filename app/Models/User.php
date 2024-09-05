@@ -19,7 +19,7 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
-        'level',
+        // 'level',
         'email',
         'password',
     ];
@@ -42,4 +42,10 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-}
+
+    // // Relasi ke model User
+    // public function user()
+    // {
+    //     return $this->hasOne(Profile::class);
+    }
+

@@ -1,16 +1,16 @@
 @extends('layout.master')
 
 @section('judul')
-Daftar Pengeluaran
+Daftar Pengeluaran Bibit Ikan
 @endsection
 
 @push('script')
-    <script src="https://cdn.datatables.net/v/bs4/dt-1.13.6/datatables.min.js"></script>
-    <script>
-        $(function(){
-            $('#example1').DataTable();
-        });
-    </script>
+<script src="https://cdn.datatables.net/v/bs4/dt-1.13.6/datatables.min.js"></script>
+<script>
+  $(function() {
+    $('#example1').DataTable();
+  });
+</script>
 @endpush
 
 @push('style')
@@ -18,15 +18,15 @@ Daftar Pengeluaran
 @endpush
 
 @section('content')
-<a class="btn btn-secondary mb-3" href="/pengeluaran/create">Tambah Data Pengeluaran Untuk Bibit</a>
-<table class="table">
+<a class="btn btn-secondary mb-3" href="/pengeluaran/create">Tambah Pengeluaran Bibit Ikan</a>
+<table id="example1" class="table">
   <thead class="thead-dark">
     <tr>
       <th scope="col">#</th>
       <th scope="col">Tanggal Pembelian</th>
       <th scope="col">Nama Ikan</th>
       <th scope="col">Jumlah Ikan</th>
-      <th scope="col">Harga per (ekor)</th>
+      <th scope="col">Harga per Ekor</th>
       <th scope="col">Total Biaya</th>
       <th scope="col">Action</th>
     </tr>
@@ -36,8 +36,8 @@ Daftar Pengeluaran
     <tr>
       <td>{{ $key + 1 }}</td>
       <td>{{ \Carbon\Carbon::parse($item->tanggal_pembelian)->format('d-m-Y') }}</td>
-      <td>{{ $item->nama_ikan}}</td>
-      <td>{{ $item->jumlah_ikan}}</td>
+      <td>{{ $item->nama_ikan }}</td>
+      <td>{{ $item->jumlah_ikan }}</td>
       <td>{{ $item->harga_per }} /ekor</td>
       <td>{{ $item->total_biaya }}</td>
       <td>
@@ -47,12 +47,10 @@ Daftar Pengeluaran
           @method('delete')
           <button type="submit" onclick="return confirm('Apakah anda yakin menghapus data ini?')" class="btn btn-danger btn-sm">Hapus</button>
         </form>
-      </td>
+        </td>
     </tr>
     @empty
-    <tr>
-      <td colspan="6" class="text-center">Data tidak ada</td>
-    </tr>
+    <h2>Data tidak ada</h2>
     @endforelse
   </tbody>
 </table>

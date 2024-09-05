@@ -1,52 +1,55 @@
 @extends('layout.master')
 
 @section('judul')
-Edit Pakan
+Edit Data Pakan
 @endsection
 
 @section('content')
-<form method="post" action="/pakan/{{ $pakan->id }}">
-    @csrf
-    @method('PUT')
-    
-    <div class="form-group">
-        <label>Nama Pakan</label>
-        <input type="text" name="nama_pakan" value="{{ old('nama_pakan', $pakan->nama_pakan) }}" class="form-control">
+<div class="card">
+    <div class="card-header">
+        Form Edit Data Pakan
     </div>
-    @error('nama_pakan')
-        <div class="alert alert-danger">{{ $message }}</div>
-    @enderror
+    <div class="card-body">
+        <form method="post" action="/pakan/{{ $pakan->id }}">
+            @csrf
+            @method('PUT')
 
-    <div class="form-group">
-        <label>Nama Kolam</label>
-        <select name="kolam_id" class="form-control">
-            @foreach($kolam as $kolamItem)
-                <option value="{{ $kolamItem->id }}" {{ $pakan->kolam_id == $kolamItem->id ? 'selected' : '' }}>
-                    {{ $kolamItem->nama_kolam }}
-                </option>
-            @endforeach
-        </select>
-    </div>
-    @error('kolam_id')
-        <div class="alert alert-danger">{{ $message }}</div>
-    @enderror
+            <div class="form-group">
+                <label>Nama Pakan</label>
+                <input type="text" name="nama_pakan" value="{{ old('nama_pakan', $pakan->nama_pakan) }}" class="form-control">
+            </div>
+            @error('nama_pakan')
+            <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
 
-    <div class="form-group">
-        <label>Jumlah Ikan</label>
-        <select name="ikan_id" class="form-control" id="ikan_id">
-            @foreach($ikan as $ikanItem)
-                <option value="{{ $ikanItem->id }}" data-jumlah="{{ $ikanItem->jumlah }}" data-ukuran="{{ $ikanItem->ukuran_ikan }}" {{ $pakan->ikan_id == $ikanItem->id ? 'selected' : '' }}>
-                    {{ $ikanItem->nama_ikan }} - {{ $ikanItem->jumlah }} ({{ $ikanItem->ukuran_ikan }})
-                </option>
-            @endforeach
-        </select>
-    </div>
-    @error('ikan_id')
-        <div class="alert alert-danger">{{ $message }}</div>
-    @enderror
+            <div class="form-group">
+                <label>Nama Kolam</label>
+                <select name="kolam_id" class="form-control">
+                    @foreach($kolam as $kolamItem)
+                    <option value="{{ $kolamItem->id }}" {{ $pakan->kolam_id == $kolamItem->id ? 'selected' : '' }}>
+                        {{ $kolamItem->nama_kolam }}
+                    </option>
+                    @endforeach
+                </select>
+            </div>
+            @error('kolam_id')
+            <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
 
-    <!-- Hapus bagian berikut -->
-    <!--
+            <div class="form-group">
+                <label>Nama Ikan</label>
+                <select name="ikan_id" class="form-control" id="ikan_id">
+                    @foreach($ikan as $ikanItem)
+                    <option value="{{ $ikanItem->id }}">{{ $ikanItem->nama_ikan }}</option>
+                    @endforeach
+                </select>
+            </div>
+            @error('ikan_id')
+            <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
+
+            <!-- Hapus bagian berikut -->
+            <!--
     <div class="form-group">
         <label>Berat Ikan per Ekor (gram)</label>
         <input type="number" name="berat_ikan" id="berat_ikan" value="{{ old('berat_ikan', $pakan->berat_ikan) }}" class="form-control">
@@ -56,36 +59,39 @@ Edit Pakan
     @enderror
     -->
 
-    <div class="form-group">
-        <label>Jumlah Pakan (kg)</label>
-        <input type="number" name="jumlah" id="jumlah_pakan" value="{{ old('jumlah', $pakan->jumlah) }}" class="form-control">
-    </div>
-    @error('jumlah')
-        <div class="alert alert-danger">{{ $message }}</div>
-    @enderror
+            <div class="form-group">
+                <label>Jumlah Pakan (kg)</label>
+                <input type="number" name="jumlah" id="jumlah_pakan" value="{{ old('jumlah', $pakan->jumlah) }}" class="form-control">
+            </div>
+            @error('jumlah')
+            <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
 
-    <div class="form-group">
-        <label>Jenis Pakan</label>
-        <input type="text" name="jenis_pakan" value="{{ old('jenis_pakan', $pakan->jenis_pakan) }}" class="form-control">
-    </div>
-    @error('jenis_pakan')
-        <div class="alert alert-danger">{{ $message }}</div>
-    @enderror
+            <div class="form-group">
+                <label>Jenis Pakan</label>
+                <input type="text" name="jenis_pakan" value="{{ old('jenis_pakan', $pakan->jenis_pakan) }}" class="form-control">
+            </div>
+            @error('jenis_pakan')
+            <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
 
-    <div class="form-group">
-        <label>Tanggal Pemberian</label>
-        <input type="date" name="tanggal_pemberian" value="{{ old('tanggal_pemberian', $pakan->tanggal_pemberian) }}" class="form-control">
-    </div>
-    @error('tanggal_pemberian')
-        <div class="alert alert-danger">{{ $message }}</div>
-    @enderror
+            <div class="form-group">
+                <label>Tanggal Pemberian</label>
+                <input type="date" name="tanggal_pemberian" value="{{ old('tanggal_pemberian', $pakan->tanggal_pemberian) }}" class="form-control">
+            </div>
+            @error('tanggal_pemberian')
+            <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
 
-    <button type="submit" class="btn btn-primary">Simpan</button>
-</form>
+            <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
+            <a href="/pakan" class="btn btn-secondary">Kembali</a>
+        </form>
+    </div>
+</div>
 
 @push('script')
 <script>
-    document.addEventListener('DOMContentLoaded', function () {
+    document.addEventListener('DOMContentLoaded', function() {
         const ikanSelect = document.getElementById('ikan_id');
         const jumlahPakanInput = document.getElementById('jumlah_pakan');
         let manualInput = false; // Flag to indicate if user has manually input value

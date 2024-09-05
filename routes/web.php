@@ -11,6 +11,7 @@ use App\Http\Controllers\PemasukannController;
 use App\Http\Controllers\PengeluaranController;
 use App\Http\Controllers\PengeluarannController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\ProfileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,29 +38,31 @@ Route::get('/login', function () {
 Route::post('/postlogin', [LoginController::Class, 'postlogin'])->name('postlogin');
 Route::get('/logout', [LoginController::Class, 'logout'])->name('logout');
 
-Route::middleware(['auth'])->group(function () {
-    // Route group untuk level owner
-    Route::middleware(['ceklevel:admin'])->group(function () {
-        Route::get('/owner', function () {
-            return view('owner.blade'); // Ganti dengan view atau logika Anda
-        })->name('owner');
+// Route::middleware(['auth'])->group(function () {
+//     // Route group untuk level owner
+//     Route::middleware(['ceklevel:admin'])->group(function () {
+//         Route::get('/owner', function () {
+//             return view('owner.blade'); // Ganti dengan view atau logika Anda
+//         })->name('owner');
 
-        // Route::get('/owner', function () {
-        //     return view('owner.keuangan'); // Ganti dengan view atau logika Anda
-        // })->name('owner.keuangan');
-    });
+        
 
-     // Route group untuk level keuangan
-    Route::middleware(['ceklevel:user'])->group(function () {
-        Route::get('/keuangan', function () {
-            return view('keuangan.blade'); // Ganti dengan view atau logika Anda
-        })->name('keuangan');
+        // Route::get('/keuangan', function () {
+        //     return view('keuangan.blade'); // Ganti dengan view atau logika Anda
+        // })->name('keuangan');
+    // });
 
-        Route::get('/beranda', function () {
-            return view('beranda.blade'); // Ganti dengan view atau logika Anda
-        })->name('beranda');
-    });
-});
+    //  // Route group untuk level keuangan
+    // Route::middleware(['ceklevel:user'])->group(function () {
+    //     Route::get('/beranda', function () {
+    //         return view('beranda.blade'); // Ganti dengan view atau logika Anda
+    //     })->name('beranda');
+
+        // Route::get('/keuangan', function () {
+        //     return view('keuangan.blade'); // Ganti dengan view atau logika Anda
+        // })->name('keuangan');
+    // });
+// });
 
 // BERANDA
 Route::get('/beranda', function () {
@@ -131,3 +134,11 @@ Route::post('/pengeluarann', [PengeluarannController::class, 'store']);
 Route::get('/pengeluarann/{pengeluarann_id}/edit', [PengeluarannController::class, 'edit']);
 Route::put('/pengeluarann/{pengeluarann_id}', [PengeluarannController::class, 'update']);
 Route::delete('/pengeluarann/{pengeluarann_id}', [PengeluarannController::class, 'destroy']);
+
+
+Route::middleware(['auth'])->group(function () {
+    Route::get('/profile', [ProfileController::class, 'index'])->name('profile.index');
+    Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::put('/profile', [ProfileController::class, 'update'])->name('profile.update');
+});
+

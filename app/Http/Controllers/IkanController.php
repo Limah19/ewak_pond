@@ -43,7 +43,6 @@ class IkanController extends Controller
             'nama_ikan' => 'required|string|max:255',
             'jenis_ikan' => 'required|string|max:255',
             'jumlah' => 'required|integer',
-            'berat_rata_rata' => 'required|numeric',
             'kolam_id' => 'required|exists:kolam,id',
         ]);
 
@@ -51,7 +50,6 @@ class IkanController extends Controller
             'nama_ikan' => $request->nama_ikan,
             'jenis_ikan' => $request->jenis_ikan,
             'jumlah' => $request->jumlah,
-            'berat_rata_rata' => $request->berat_rata_rata,
             'kolam_id' => $request->kolam_id,
         ]);
 
@@ -92,7 +90,6 @@ class IkanController extends Controller
             'nama_ikan' => 'required|string|max:255',
             'jenis_ikan' => 'required|string|max:255',
             'jumlah' => 'required|integer',
-            'berat_rata_rata' => 'required|numeric',
             'kolam_id' => 'required|exists:kolam,id',
         ]);
 
@@ -101,7 +98,6 @@ class IkanController extends Controller
             'nama_ikan' => $request->nama_ikan,
             'jenis_ikan' => $request->jenis_ikan,
             'jumlah' => $request->jumlah,
-            'berat_rata_rata' => $request->berat_rata_rata,
             'kolam_id' => $request->kolam_id,
         ]);
 
