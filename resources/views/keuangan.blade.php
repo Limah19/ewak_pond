@@ -83,7 +83,7 @@ Selamat Datang "Rizky Maulana"
                 <div class="info-box-content">
                     <h4>Pengeluaran</h4>
                     <span class="info-box-number">Pakan Ikan</span>
-                    <a href="/pengeluarann" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                    <a href="/pengeluaranpakan" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                 </div>
                 <!-- /.info-box-content -->
             </div>
@@ -103,7 +103,7 @@ Selamat Datang "Rizky Maulana"
                 <div class="info-box-content">
                     <h4>Pengeluaran</h4>
                     <span class="info-box-number">Bibit Ikan</span>
-                    <a href="/pengeluaran" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                    <a href="/pengeluaranbibit" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                 </div>
                 <!-- /.info-box-content -->
             </div>

@@ -7,8 +7,9 @@ use App\Http\Controllers\PakanController;
 use App\Http\Controllers\PanenController;
 use App\Http\Controllers\PemasukannController;
 use App\Http\Controllers\PengeluaranPakanController;
-use App\Http\Controllers\PengeluarannController;
+use App\Http\Controllers\PengeluaranBibitController;
 use App\Http\Controllers\LoginController;
+use App\Models\PengeluaranBibit;
 
 /*
 |--------------------------------------------------------------------------
@@ -93,16 +94,18 @@ Route::put('/pemasukann/{pemasukann_id}', [PemasukannController::class, 'update'
 Route::delete('/pemasukann/{pemasukann_id}', [PemasukannController::class, 'destroy']);
 
 // CRUD Pengeluaran Pakan
-Route::get('/pengeluaran-pakan', [PengeluaranPakanController::class, 'index'])->name('pengeluaran_pakan.index');
-Route::post('/pengeluaran-pakan', [PengeluaranPakanController::class, 'store'])->name('pengeluaran_pakan.store');
-Route::get('/pengeluaran-pakan/{id}/edit', [PengeluaranPakanController::class, 'edit'])->name('pengeluaran_pakan.edit');
-Route::put('/pengeluaran-pakan/{id}', [PengeluaranPakanController::class, 'update'])->name('pengeluaran_pakan.update');
-Route::delete('/pengeluaran-pakan/{id}', [PengeluaranPakanController::class, 'destroy'])->name('pengeluaran_pakan.destroy');
+Route::get('/pengeluaranpakan', [PengeluaranPakanController::class, 'index'])->name('pengeluaranpakan.index');
+Route::get('/pengeluaranpakan/create', [PengeluaranPakanController::class, 'create'])->name('pengeluaranpakan.create');
+Route::post('/pengeluaranpakan', [PengeluaranPakanController::class, 'store'])->name('pengeluaranpakan.store');
+Route::get('/pengeluaranpakan/{id}/edit', [PengeluaranPakanController::class, 'edit'])->name('pengeluaranpakan.edit');
+Route::put('/pengeluaranpakan/{id}', [PengeluaranPakanController::class, 'update'])->name('pengeluaranpakan.update');
+Route::delete('/pengeluaranpakan/{id}', [PengeluaranPakanController::class, 'destroy']);
 
-// CRUD Pengeluarann
-Route::get('/pengeluarann', [PengeluarannController::class, 'index']);
-Route::get('/pengeluarann/create', [PengeluarannController::class, 'create']);
-Route::post('/pengeluarann', [PengeluarannController::class, 'store']);
-Route::get('/pengeluarann/{pengeluarann_id}/edit', [PengeluarannController::class, 'edit']);
-Route::put('/pengeluarann/{pengeluarann_id}', [PengeluarannController::class, 'update']);
-Route::delete('/pengeluarann/{pengeluarann_id}', [PengeluarannController::class, 'destroy']);
+// CRUD Pengeluaran Bibit
+Route::get('/pengeluaranbibit', [PengeluaranBibitController::class, 'index'])->name('pengeluaranbibit.index');
+Route::get('/pengeluaranbibit/create', [PengeluaranBibitController::class, 'create']);
+Route::post('/pengeluaranbibit', [PengeluaranBibitController::class, 'store'])->name('pengeluaranbibit.store');
+Route::get('/pengeluaranbibit/{id}/edit', [PengeluaranBibitController::class, 'edit'])->name('pengeluaranbibit.edit');
+Route::put('/pengeluaranbibit/{id}', [PengeluaranBibitController::class, 'update'])->name('pengeluaranbibit.update');
+Route::delete('/pengeluaranbibit/{id}', [PengeluaranBibitController::class, 'destroy']);
+

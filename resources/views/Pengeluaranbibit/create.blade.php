@@ -1,22 +1,22 @@
 @extends('layout.master')
 
 @section('judul')
-Tambah Pengeluaran Pakan Ikan
+Tambah Pengeluaran Bibit Ikan
 @endsection
 
 @section('content')
 <div class="card" style="background-color: #99cdd8">
     <div class="card-header">
-        <h3>Form Tambah Pengeluaran Pakan Ikan</h3>
+        <h3>Form Tambah Pengeluaran Bibit Ikan</h3>
     </div>
     <div class="card-body">
-        <form action="/pengeluaranpakan" method="POST">
+        <form action="/pengeluaranbibit" method="POST">
             @csrf
             <div class="form-group">
                 <label>Nama Kolam</label>
                 <select name="kolam_id" class="form-control">
                     @foreach($kolam as $kolamItem)
-                    <option value="{{ $kolamItem->id }}">{{ $kolamItem->nama_kolam }} ({{ $kolamItem->jumlah_ikan }})</option>
+                    <option value="{{ $kolamItem->id }}">{{ $kolamItem->nama_kolam }}</option>
                     @endforeach
                 </select>
             </div>
@@ -25,22 +25,22 @@ Tambah Pengeluaran Pakan Ikan
             @enderror
 
             <div class="form-group">
-                <label>Jumlah Pakan (kuintal)</label>
-                <select id="pakan_id" name="pakan_id" class="form-control">
-                    @foreach($pakan as $pakanItem)
-                    <option value="{{ $pakanItem->id }}" data-amount="{{ $pakanItem->jumlah_pakan }}">{{ $pakanItem->nama_pakan }} ({{ $pakanItem->jumlah_pakan }} kuintal)</option>
+                <label>Jumlah Bibit Ikan</label>
+                <select id="ikan_id" name="ikan_id" class="form-control">
+                    @foreach($ikan as $ikanItem)
+                    <option value="{{ $ikanItem->id }}" data-amount="{{ $ikanItem->jumlah }}">{{ $ikanItem->jumlah }} ekor ({{ $ikanItem->nama_ikan }}) </option>
                     @endforeach
                 </select>
             </div>
-            @error('pakan_id')
+            @error('ikan_id')
             <div class="alert alert-danger">{{ $message }}</div>
             @enderror
 
             <div class="form-group">
-                <label>Harga Pakan per Kg</label>
-                <input type="number" name="harga_pakan_per_kg" value="" class="form-control" placeholder="Masukkan Harga Pakan per Kg" required>
+                <label>Harga Bibit per Ekor</label>
+                <input type="number" name="harga_bibit_per_ekor" value="" class="form-control" placeholder="Masukkan Harga Bibit per Ekor" required>
             </div>
-            @error('harga_pakan_per_kg')
+            @error('harga_bibit_per_ekor')
             <div class="alert alert-danger">{{ $message }}</div>
             @enderror
 
@@ -61,33 +61,35 @@ Tambah Pengeluaran Pakan Ikan
             @enderror
 
             <button type="submit" class="btn btn-primary">Simpan</button>
-            <a href="/pengeluaranpakan" class="btn btn-secondary">Kembali</a>
+            <a href="/pengeluaranbibit" class="btn btn-secondary">Kembali</a>
         </form>
     </div>
 </div>
 @push('script')
 <script>
     document.addEventListener('DOMContentLoaded', function() {
-        const pakanSelect = document.getElementById('pakan_id');
-        const hargaPakanInput = document.getElementById('harga_pakan_per_kg');
+        const ikanSelect = document.getElementById('ikan_id');
+        const hargaBibitInput = document.getElementById('harga_bibit_per_ekor');
         const totalBiayaInput = document.getElementById('total_biaya');
 
         function calculateTotalBiaya() {
-            const selectedOption = pakanSelect.options[pakanSelect.selectedIndex];
-            const jumlahPakan = parseFloat(selectedOption.getAttribute('data-amount'));
-            const hargaPakanPerKg = parseFloat(hargaPakanInput.value);
+            const selectedOption = ikanSelect.options[ikanSelect.selectedIndex];
+            const jumlah = parseFloat(selectedOption.getAttribute('data-amount'));
+            const hargaBibitPerEkor = parseFloat(hargaBibitInput.value);
 
-            if (jumlahPakan && hargaPakanPerKg) {
-                const totalBiaya = jumlahPakan * 100 * hargaPakanPerKg;
+            if (!isNaN(jumlah) && !isNaN(hargaBibitPerEkor)) {
+                const totalBiaya = jumlah * hargaBibitPerEkor;
                 totalBiayaInput.value = totalBiaya.toFixed(2);
             } else {
                 totalBiayaInput.value = '';
             }
         }
 
-        pakanSelect.addEventListener('change', calculateTotalBiaya);
-        hargaPakanInput.addEventListener('input', calculateTotalBiaya);
+        ikanSelect.addEventListener('change', calculateTotalBiaya);
+        hargaBibitInput.addEventListener('input', calculateTotalBiaya);
     });
+</script>
+
 </script>
 @endpush
 @endsection
