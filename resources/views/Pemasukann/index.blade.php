@@ -24,6 +24,7 @@ Daftar Pemasukan Hasil Panen
     <tr>
       <th scope="col">#</th>
       <th scope="col">Tanggal Panen</th>
+      <th scope="col">Nama Kolam</th>
       <th scope="col">Nama Ikan</th>
       <th scope="col">Harga per kg</th>
       <th scope="col">Total Berat (kg)</th>
@@ -36,6 +37,7 @@ Daftar Pemasukan Hasil Panen
     <tr>
       <td>{{ $key + 1 }}</td>
       <td>{{ \Carbon\Carbon::parse($item->tanggal_panen)->format('d-m-Y') }}</td>
+      <td>{{ $item->nama_kolam }}</td>
       <td>{{ $item->nama_ikan }}</td>
       <td>{{ $item->harga_per }} /kg</td>
       <td>{{ $item->total_berat }}</td>

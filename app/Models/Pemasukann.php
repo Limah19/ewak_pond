@@ -13,6 +13,7 @@ class Pemasukann extends Model
 
     protected $fillable = [
         'tanggal_panen',
+        'nama_kolam',
         'nama_ikan',
         'harga_per',
         'total_berat',

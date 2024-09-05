@@ -14,8 +14,8 @@ class Kolam extends Model
     protected $fillable = [
         'nama_kolam',
         'ukuran_kolam',
-        'jenis_kolam',
-        'kapasitas',
+        'nama_ikan',
+        'jumlah_ikan',
         'status'
     ];
 }

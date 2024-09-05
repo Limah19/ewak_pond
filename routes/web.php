@@ -8,7 +8,7 @@ use App\Http\Controllers\IkanController;
 use App\Http\Controllers\PakanController;
 use App\Http\Controllers\PanenController;
 use App\Http\Controllers\PemasukannController;
-use App\Http\Controllers\PengeluaranController;
+use App\Http\Controllers\PengeluaranPakanController;
 use App\Http\Controllers\PengeluarannController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ProfileController;
@@ -37,41 +37,17 @@ Route::get('/login', function () {
 // LOGIN2
 Route::post('/postlogin', [LoginController::Class, 'postlogin'])->name('postlogin');
 Route::get('/logout', [LoginController::Class, 'logout'])->name('logout');
+Route::post('/postlogin', [LoginController::class, 'postlogin'])->name('postlogin');
 
-// Route::middleware(['auth'])->group(function () {
-//     // Route group untuk level owner
-//     Route::middleware(['ceklevel:admin'])->group(function () {
-//         Route::get('/owner', function () {
-//             return view('owner.blade'); // Ganti dengan view atau logika Anda
-//         })->name('owner');
-
-        
-
-        // Route::get('/keuangan', function () {
-        //     return view('keuangan.blade'); // Ganti dengan view atau logika Anda
-        // })->name('keuangan');
-    // });
-
-    //  // Route group untuk level keuangan
-    // Route::middleware(['ceklevel:user'])->group(function () {
-    //     Route::get('/beranda', function () {
-    //         return view('beranda.blade'); // Ganti dengan view atau logika Anda
-    //     })->name('beranda');
-
-        // Route::get('/keuangan', function () {
-        //     return view('keuangan.blade'); // Ganti dengan view atau logika Anda
-        // })->name('keuangan');
-    // });
-// });
 
 // BERANDA
 Route::get('/beranda', function () {
     return view('beranda');
 });
 
-// OWNER
-Route::get('/owner', function () {
-    return view('owner');
+// Administrasi
+Route::get('/administrasi', function () {
+    return view('administrasi');
 }); // ->middleware('auth')
 
 // KEUANGAN
@@ -119,13 +95,12 @@ Route::get('/pemasukann/{pemasukann_id}/edit', [PemasukannController::class, 'ed
 Route::put('/pemasukann/{pemasukann_id}', [PemasukannController::class, 'update']);
 Route::delete('/pemasukann/{pemasukann_id}', [PemasukannController::class, 'destroy']);
 
-// CRUD Pengeluaran
-Route::get('/pengeluaran', [PengeluaranController::class, 'index']);
-Route::get('/pengeluaran/create', [PengeluaranController::class, 'create']);
-Route::post('/pengeluaran', [PengeluaranController::class, 'store']);
-Route::get('/pengeluaran/{pengeluaran_id}/edit', [PengeluaranController::class, 'edit']);
-Route::put('/pengeluaran/{pengeluaran_id}', [PengeluaranController::class, 'update']);
-Route::delete('/pengeluaran/{pengeluaran_id}', [PengeluaranController::class, 'destroy']);
+// CRUD Pengeluaran Pakan
+Route::get('/pengeluaran-pakan', [PengeluaranPakanController::class, 'index'])->name('pengeluaran_pakan.index');
+Route::post('/pengeluaran-pakan', [PengeluaranPakanController::class, 'store'])->name('pengeluaran_pakan.store');
+Route::get('/pengeluaran-pakan/{id}/edit', [PengeluaranPakanController::class, 'edit'])->name('pengeluaran_pakan.edit');
+Route::put('/pengeluaran-pakan/{id}', [PengeluaranPakanController::class, 'update'])->name('pengeluaran_pakan.update');
+Route::delete('/pengeluaran-pakan/{id}', [PengeluaranPakanController::class, 'destroy'])->name('pengeluaran_pakan.destroy');
 
 // CRUD Pengeluarann
 Route::get('/pengeluarann', [PengeluarannController::class, 'index']);
@@ -136,9 +111,18 @@ Route::put('/pengeluarann/{pengeluarann_id}', [PengeluarannController::class, 'u
 Route::delete('/pengeluarann/{pengeluarann_id}', [PengeluarannController::class, 'destroy']);
 
 
-Route::middleware(['auth'])->group(function () {
-    Route::get('/profile', [ProfileController::class, 'index'])->name('profile.index');
-    Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::put('/profile', [ProfileController::class, 'update'])->name('profile.update');
-});
+// Route::middleware(['auth'])->group(function () {
+//     Route::get('/profile', [ProfileController::class, 'index'])->name('profile.index');
+//     Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('profile.edit');
+//     Route::put('/profile', [ProfileController::class, 'update'])->name('profile.update');
+// });
 
+// Route::middleware(['auth'])->group(function () {
+//     // Route group untuk level administrasi
+//     Route::middleware(['ceklevel:admin, karyawan'])->group(function () {
+//     Route::get('/administrasi', function () {
+//           return view('administrasi2.blade'); // Ganti dengan view atau logika Anda
+//       })->name('/administrasi');
+//     });
+
+// });

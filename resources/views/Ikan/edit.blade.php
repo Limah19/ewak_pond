@@ -5,9 +5,9 @@ Edit Data Bibit Ikan
 @endsection
 
 @section('content')
-<div class="card">
+<div class="card" style="background-color: #99cdd8">
     <div class="card-header">
-        Form Edit Data Bibit Ikan
+        <h3>Form Edit Data Bibit Ikan</h3>
     </div>
     <div class="card-body">
         <form method="post" action="/ikan/{{ $ikan->id }}">

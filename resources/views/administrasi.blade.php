@@ -1,9 +1,7 @@
 @extends('layout.master')
 
 @section('judul')
-<!-- Selamat Datang "Rizky Maulana" -->
 Selamat Datang "{{ Auth::user()->name }}"
-<!-- Selamat Datang, 1019529e6f4150c8f1620638c3acb046a1cc9438 -->
 @endsection
 
 @section('content')
@@ -23,10 +21,11 @@ Selamat Datang "{{ Auth::user()->name }}"
     <style>
         body {
             font-family: 'Nunito', sans-serif;
+
         }
 
         .content-box {
-            background-color: #f9f9f9;
+            background-color: #fff5e0;
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -34,22 +33,31 @@ Selamat Datang "{{ Auth::user()->name }}"
         }
 
         .stat-box {
-            background-color: #fff;
+            background-color: #fff5e0;
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             margin-top: 20px;
+        }
+
+        .inner {
+            background-color: #99cdd8;
         }
     </style>
 </head>
 
 <body>
 
+
     <!-- Deskripsi 
     <div class="content-box">
         <h3>Rizky Maulana adalah salah satu pengelola operasional di Ewak Pond.</h3>
         <h6>Sebagai pengelola operasional, Bapak Rizky bertanggung jawab atas koordinasi dan pengawasan berbagai aktivitas yang terkait dengan produksi ikan, termasuk pengelolaan pakan, perawatan kolam, dan pemantauan kesehatan ikan. Beliau juga terlibat dalam pengembangan dan penerapan prosedur operasional standar untuk memastikan efisiensi dan kualitas produksi.</h6>
     </div>   -->
+    <!-- Deskripsi -->
+    <!-- <div class="content-box"> -->
+    <!-- <h3>Rizky Maulana adalah salah satu pengelola operasional di Ewak Pond.</h3> -->
+    <!-- <h6>Sebagai pengelola operasional, Bapak Rizky bertanggung jawab atas koordinasi dan pengawasan berbagai aktivitas yang terkait dengan produksi ikan, termasuk pengelolaan pakan, perawatan kolam, dan pemantauan kesehatan ikan. Beliau juga terlibat dalam pengembangan dan penerapan prosedur operasional standar untuk memastikan efisiensi dan kualitas produksi.</h6> -->
 
     <!-- Statistik -->
     <div class="stat-box"> 
@@ -63,7 +71,7 @@ Selamat Datang "{{ Auth::user()->name }}"
                     </div>
                     <h3>Kolam</h3>
                 </div>
-                <a href="/kolam" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                <a href="/kolam" class="small-box-footer" style="background-color: #32373b;">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
         </div>
         <!-- ./col -->
@@ -76,20 +84,20 @@ Selamat Datang "{{ Auth::user()->name }}"
                     </div>
                     <h3>Bibit</h3>
                 </div>
-                <a href="/ikan" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                <a href="/ikan" class="small-box-footer" style="background-color: #32373b;">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
         </div>
         <!-- ./col -->
         <div class="col-lg-3 col-6">
             <!-- small box -->
-            <div class="small-box bg-warning">
+            <div class="small-box bg-success">
                 <div class="inner">
                     <div class="icon">
                         <i class="fas fa-cookie-bite"></i>
                     </div>
                     <h3>Pakan</h3>
                 </div>
-                <a href="/pakan" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                <a href="/pakan" class="small-box-footer" style="background-color: #32373b;">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
         </div>
         <!-- ./col -->
@@ -102,12 +110,13 @@ Selamat Datang "{{ Auth::user()->name }}"
                     </div>
                     <h3>Panen</h3>
                 </div>
-                <a href="/panen" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                <a href="/panen" class="small-box-footer" style="background-color: #32373b;">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
         </div>
         <!-- ./col -->
     </div>
 </body>
+
 
 </html>
 @endsection

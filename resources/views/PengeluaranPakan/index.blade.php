@@ -18,31 +18,31 @@ Daftar Pengeluaran Pakan Ikan
 @endpush
 
 @section('content')
-<a class="btn btn-secondary mb-3" href="/pengeluarann/create">Tambah Pengeluaran Pakan Ikan</a>
+<a class="btn btn-secondary mb-3" href="/pengeluaran-pakan/create">Tambah Pengeluaran Pakan Ikan</a>
 <table class="table" id="example1">
   <thead class="thead-dark">
     <tr>
       <th scope="col">#</th>
       <th scope="col">Tanggal Pembelian</th>
-      <th scope="col">Jenis Pakan</th>
-      <th scope="col">Jumlah Pakan (kg)</th>
-      <th scope="col">Harga per (kg)</th>
+      <th scope="col">Nama Kolam (Jumlah Ikan)</th>
+      <th scope="col">Jumlah Pakan (ton)</th>
+      <th scope="col">Harga per kg</th>
       <th scope="col">Total Biaya</th>
       <th scope="col">Action</th>
     </tr>
   </thead>
   <tbody>
-    @forelse ($pengeluarann as $key => $item)
+    @forelse ($pengeluaran-pakan as $key => $item)
     <tr>
       <td>{{ $key + 1 }}</td>
       <td>{{ $item->tanggal_pembelian }}</td>
-      <td>{{ $item->jenis_pakan }}</td>
-      <td>{{ $item->jumlah_pakan }}</td>
-      <td>{{ $item->harga_per }}</td>
+      <td>{{ $item->nama_kolam }} ({{ $item->jumlah_ikan }} ikan)</td>
+      <td>{{ $item->jumlah_pakan }} kg</td>
+      <td>{{ $item->harga_per_kg }} /kg</td>
       <td>{{ $item->total_biaya }}</td>
       <td>
-        <form action="/pengeluarann/{{ $item->id }}" method="POST" id="deleteForm">
-          <a href="/pengeluarann{{ $item->id }}/edit" class="btn btn-warning btn-sm">Edit</a>
+        <form action="/pengeluaran-pakan/{{ $item->id }}" method="POST">
+          <a href="/pengeluaran-pakan/{{ $item->id }}/edit" class="btn btn-warning btn-sm">Edit</a>
           @csrf
           @method('delete')
           <button type="submit" onclick="return confirm('Apakah anda yakin menghapus data ini?')" class="btn btn-danger btn-sm">Hapus</button>

@@ -24,14 +24,16 @@ class PengeluarannController extends Controller
     {
         $request->validate([
             'tanggal_pembelian' => 'required|date',
+            'nama_kolam' => 'required|string|max:255',
             'jenis_pakan' => 'required|string|max:255',
             'jumlah_pakan' => 'required|numeric|min:1',
             'harga_per' => 'required|numeric|min:1',
-            'total_biaya' => 'required|numeric|min:0',
+            'total_biaya' => 'required|string|max:255',
         ]);
 
         $pengeluarann = new Pengeluarann;
         $pengeluarann->tanggal_pembelian = $request->tanggal_pembelian;
+        $pengeluarann->nama_kolam = $request->nama_kolam;
         $pengeluarann->jenis_pakan = $request->jenis_pakan;
         $pengeluarann->jumlah_pakan = $request->jumlah_pakan;
         $pengeluarann->harga_per = $request->harga_per;
@@ -58,14 +60,16 @@ class PengeluarannController extends Controller
     {
         $request->validate([
             'tanggal_pembelian' => 'required|date',
+            'nama_kolam' => 'required|string|max:255',
             'jenis_pakan' => 'required|string|max:255',
             'jumlah_pakan' => 'required|numeric|min:1',
             'harga_per' => 'required|numeric|min:1',
-            'total_biaya' => 'required|numeric|min:0',
+            'total_biaya' => 'required|string|max:255',
         ]);
 
         $pengeluarann = Pengeluarann::findOrFail($id);
         $pengeluarann->tanggal_pembelian = $request->tanggal_pembelian;
+        $pengeluarann->nama_kolam = $request->nama_kolam;
         $pengeluarann->jenis_pakan = $request->jenis_pakan;
         $pengeluarann->jumlah_pakan = $request->jumlah_pakan;
         $pengeluarann->harga_per = $request->harga_per;

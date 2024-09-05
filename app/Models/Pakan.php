@@ -14,7 +14,7 @@ class Pakan extends Model
     protected $fillable = [
         'nama_pakan',
         'jenis_pakan',
-        'jumlah',
+        'jumlah_pakan',
         'ikan_id',
         'kolam_id', // Menambahkan kolam_id
         'tanggal_pemberian'

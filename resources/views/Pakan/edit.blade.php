@@ -5,9 +5,9 @@ Edit Data Pakan
 @endsection
 
 @section('content')
-<div class="card">
+<div class="card" style="background-color: #99cdd8">
     <div class="card-header">
-        Form Edit Data Pakan
+        <h3>Form Edit Data Pakan</h3>
     </div>
     <div class="card-body">
         <form method="post" action="/pakan/{{ $pakan->id }}">
@@ -48,22 +48,11 @@ Edit Data Pakan
             <div class="alert alert-danger">{{ $message }}</div>
             @enderror
 
-            <!-- Hapus bagian berikut -->
-            <!--
-    <div class="form-group">
-        <label>Berat Ikan per Ekor (gram)</label>
-        <input type="number" name="berat_ikan" id="berat_ikan" value="{{ old('berat_ikan', $pakan->berat_ikan) }}" class="form-control">
-    </div>
-    @error('berat_ikan')
-        <div class="alert alert-danger">{{ $message }}</div>
-    @enderror
-    -->
-
             <div class="form-group">
-                <label>Jumlah Pakan (kg)</label>
-                <input type="number" name="jumlah" id="jumlah_pakan" value="{{ old('jumlah', $pakan->jumlah) }}" class="form-control">
+                <label>Jumlah Pakan (kuintal)</label>
+                <input type="number" name="jumlah_pakan" id="jumlah_pakan" value="{{ old('jumlah_pakan', $pakan->jumlah_pakan) }}" class="form-control">
             </div>
-            @error('jumlah')
+            @error('jumlah_pakan')
             <div class="alert alert-danger">{{ $message }}</div>
             @enderror
 

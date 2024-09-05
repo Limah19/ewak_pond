@@ -13,56 +13,61 @@
           </p>
         </a>
       </li>
-      <li class="nav-item">
-        <a href="/" class="nav-link">
-          <i class="nav-icon fas fa-user-tie"></i>
-          <p>
-            Owner
-            <span class="right badge badge-danger"></span>
-          </p>
-        </a>
-      </li>
-      <li class="nav-item menu-open">
-            <a href="#" class="nav-link active">
-              <i class="nav-icon fas fa-tachometer-alt"></i>
+      <li class="nav-item has-treeview menu-open">
+            <a href="/" class="nav-link">
+              <i class="nav-icon fas fa-user-tie"></i>
               <p>
-                Dashboard
-                <i class="right fas fa-angle-left"></i>
+              Administrasi
+              <i class="right fas fa-angle-left"></i> 
               </p>
             </a>
             <ul class="nav nav-treeview">
+
+              @if(Auth::user()->level == 'admin' || Auth::user()->level == 'karyawan')
               <li class="nav-item">
-                <a href="./index.html" class="nav-link">
+                <a href="/administrasi" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Dashboard v1</p>
+                  <p>Data Administrasi</p>
                 </a>
               </li>
+              @endif
+              @if(Auth::user()->level == 'admin' || Auth::user()->level == 'user')
               <li class="nav-item">
-                <a href="./index2.html" class="nav-link">
+                <a href="/administrasi" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Dashboard v2</p>
+                  <p>Data Administrasi</p>
                 </a>
               </li>
-              <li class="nav-item">
-                <a href="./index3.html" class="nav-link active">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Dashboard v3</p>
-                </a>
-              </li>
+              @endif
             </ul>
-          </li>
-          
-      <!-- @if (auth()->user()->level=="admin") -->
-      <li class="nav-item">
-        <a href="/keuangan" class="nav-link">
-          <i class="nav-icon fas fa-wallet"></i>
-          <p>
-          Keuangan
-            <span class="right badge badge-danger"></span>
-          </p>
-        </a>
-      </li>
-      <!-- @endif -->
+      
+            <li class="nav-item has-treeview menu-open">
+            <a href="/keuangan" class="nav-link">
+              <i class="nav-icon fas fa-wallet"></i>
+              <p>
+              Keuangan
+              <i class="right fas fa-angle-left"></i> 
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+            @if(Auth::user()->level == 'admin' || Auth::user()->level == 'karyawan')
+            <li class="nav-item">
+                <a href="/keuangan" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Data Keuangann </p>
+                </a>
+              </li>
+              @endif
+              @if(Auth::user()->level == 'admin' || Auth::user()->level == 'user')
+              <li class="nav-item">
+                <a href="/keuangan" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Data Keuangan </p>
+                </a>
+              </li>
+              @endif
+            </ul>
+
       <li class="nav-item">
         <a href="{{route('logout')}}" class="nav-link">
           <i class="nav-icon fas fa-sign-out-alt"></i>

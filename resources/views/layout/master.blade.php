@@ -19,16 +19,16 @@
   @stack('style')
 </head>
 
-<body class="hold-transition sidebar-mini">
+<body class="hold-transition sidebar-mini" >
   <!-- Site wrapper -->
-  <div class="wrapper">
+  <div class="wrapper" >
 
     <!-- Navbar -->
     @include('partial.nav')
     <!-- /Navbar -->
 
     <!-- Main Sidebar Container -->
-    <aside class="main-sidebar sidebar-dark-primary elevation-4" style="background-color: #22303F; color: #fff;">
+    <aside class="main-sidebar sidebar-dark-primary elevation-4" style="background-color: #32373b; color: #FFF;">
       <!-- Brand Logo -->
       <a href="{{asset('admin/index3.html')}}" class="brand-link">
         <img src="{{asset('admin/dist/img/EwakPondLogo.png')}}" alt="EwakPond Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
@@ -53,9 +53,9 @@
 
         <!-- Default box -->
         <div class="card">
-          <div class="card-header" style="background-color: #22303F; color: #fff;">
+          <div class="card-header" style="background-color: #32373b; color: #fff;">
             <h1 class="card-title">
-              <i class="fas fa-info-circle"></i> @yield('judul')
+              <i class="fas fa-info-circle" ></i> @yield('judul')
             </h1>
 
             <div class="card-tools">
@@ -82,7 +82,7 @@
     <!-- /.content-wrapper -->
 
 
-    <footer class="main-footer">
+    <footer class="main-footer" style="background-color: #99cdd8; color: #32373b;" >
       <div class="float-right d-none d-sm-block">
         <b>Version</b> 3.2.0
       </div>
