@@ -13,7 +13,7 @@
           </p>
         </a>
       </li>
-      <li class="nav-item has-treeview menu-open">
+      <li class="nav-item menu-open">
             <a href="/" class="nav-link">
               <i class="nav-icon fas fa-user-tie"></i>
               <p>
@@ -41,7 +41,7 @@
               @endif
             </ul>
       
-            <li class="nav-item has-treeview menu-open">
+            <li class="nav-item menu-open">
             <a href="/keuangan" class="nav-link">
               <i class="nav-icon fas fa-wallet"></i>
               <p>
@@ -50,6 +50,7 @@
               </p>
             </a>
             <ul class="nav nav-treeview">
+
             @if(Auth::user()->level == 'admin' || Auth::user()->level == 'karyawan')
             <li class="nav-item">
                 <a href="/keuangan" class="nav-link">
@@ -68,6 +69,14 @@
               @endif
             </ul>
 
+            <li class="nav-item">
+        <a href="/profil" class="nav-link">
+          <i class="nav-icon fas fa-user"></i>
+          <p>
+          Profil
+          </p>
+        </a>
+      </li>
       <li class="nav-item">
         <a href="{{route('logout')}}" class="nav-link">
           <i class="nav-icon fas fa-sign-out-alt"></i>

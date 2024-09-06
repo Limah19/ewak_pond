@@ -96,7 +96,6 @@ Route::get('/pengeluaranpakan/{id}/edit', [PengeluaranPakanController::class, 'e
 Route::put('/pengeluaranpakan/{id}', [PengeluaranPakanController::class, 'update'])->name('pengeluaranpakan.update');
 Route::delete('/pengeluaranpakan/{id}', [PengeluaranPakanController::class, 'destroy']);
 
-
 // CRUD Pengeluarann
 // Route::get('/pengeluarann', [PengeluarannController::class, 'index']);
 // Route::get('/pengeluarann/create', [PengeluarannController::class, 'create']);
@@ -112,15 +111,7 @@ Route::delete('/pengeluaranpakan/{id}', [PengeluaranPakanController::class, 'des
 //     Route::put('/profile', [ProfileController::class, 'update'])->name('profile.update');
 // });
 
-// Route::middleware(['auth'])->group(function () {
-//     // Route group untuk level administrasi
-//     Route::middleware(['ceklevel:admin, karyawan'])->group(function () {
-//     Route::get('/administrasi', function () {
-//           return view('administrasi2.blade'); // Ganti dengan view atau logika Anda
-//       })->name('/administrasi');
-//     });
 
-// });
 
 // CRUD Pengeluaran Bibit
 Route::get('/pengeluaranbibit', [PengeluaranBibitController::class, 'index'])->name('pengeluaranbibit.index');
@@ -137,4 +128,10 @@ Route::post('/pemasukanpanen', [PemasukanPanenController::class, 'store'])->name
 Route::get('/pemasukanpanen/{id}/edit', [PemasukanPanenController::class, 'edit'])->name('pemasukanpanen.edit');
 Route::put('/pemasukanpanen/{id}', [PemasukanPanenController::class, 'update'])->name('pemasukanpanen.update');
 Route::delete('/pemasukanpanen/{id}', [PemasukanPanenController::class, 'destroy'])->name('pemasukanpanen.destroy');
+
+
+// KEUANGAN
+Route::get('/profil', function () {
+    return view('profil');
+}); 
 
