@@ -49,8 +49,7 @@
 /* resources/css/app.css */
 .login-page {
     background-color: #99cdd8; /* Ganti dengan kode warna yang diinginkan */
-    /* min-height: 100vh; Agar background menutupi seluruh tinggi halaman */ */
-    display: flex;
+    /* min-height: 100vh; Agar background menutupi seluruh tinggi halaman */ 
     align-items: center;
     justify-content: center;
 }
