@@ -11,11 +11,8 @@ use App\Http\Controllers\PengeluaranPakanController;
 use App\Http\Controllers\PengeluaranBibitController;
 use App\Http\Controllers\PemasukanPanenController;
 use App\Http\Controllers\LoginController;
-<<<<<<< HEAD
 use App\Http\Controllers\ProfileController;
-=======
 use App\Models\PengeluaranBibit;
->>>>>>> bc1e7f284c2f0cbf1064cbb4f6f18b98e97278d5
 
 /*
 |--------------------------------------------------------------------------
@@ -99,7 +96,6 @@ Route::get('/pengeluaranpakan/{id}/edit', [PengeluaranPakanController::class, 'e
 Route::put('/pengeluaranpakan/{id}', [PengeluaranPakanController::class, 'update'])->name('pengeluaranpakan.update');
 Route::delete('/pengeluaranpakan/{id}', [PengeluaranPakanController::class, 'destroy']);
 
-<<<<<<< HEAD
 // CRUD Pengeluarann
 Route::get('/pengeluarann', [PengeluarannController::class, 'index']);
 Route::get('/pengeluarann/create', [PengeluarannController::class, 'create']);
@@ -115,16 +111,7 @@ Route::delete('/pengeluarann/{pengeluarann_id}', [PengeluarannController::class,
 //     Route::put('/profile', [ProfileController::class, 'update'])->name('profile.update');
 // });
 
-// Route::middleware(['auth'])->group(function () {
-//     // Route group untuk level administrasi
-//     Route::middleware(['ceklevel:admin, karyawan'])->group(function () {
-//     Route::get('/administrasi', function () {
-//           return view('administrasi2.blade'); // Ganti dengan view atau logika Anda
-//       })->name('/administrasi');
-//     });
 
-// });
-=======
 // CRUD Pengeluaran Bibit
 Route::get('/pengeluaranbibit', [PengeluaranBibitController::class, 'index'])->name('pengeluaranbibit.index');
 Route::get('/pengeluaranbibit/create', [PengeluaranBibitController::class, 'create']);
@@ -140,4 +127,9 @@ Route::post('/pemasukanpanen', [PemasukanPanenController::class, 'store'])->name
 Route::get('/pemasukanpanen/{id}/edit', [PemasukanPanenController::class, 'edit'])->name('pemasukanpanen.edit');
 Route::put('/pemasukanpanen/{id}', [PemasukanPanenController::class, 'update'])->name('pemasukanpanen.update');
 Route::delete('/pemasukanpanen/{id}', [PemasukanPanenController::class, 'destroy'])->name('pemasukanpanen.destroy');
->>>>>>> bc1e7f284c2f0cbf1064cbb4f6f18b98e97278d5
+
+
+// KEUANGAN
+Route::get('/profil', function () {
+    return view('profil');
+}); 
