@@ -11,11 +11,8 @@ use App\Http\Controllers\PengeluaranPakanController;
 use App\Http\Controllers\PengeluaranBibitController;
 use App\Http\Controllers\PemasukanPanenController;
 use App\Http\Controllers\LoginController;
-<<<<<<< HEAD
 use App\Http\Controllers\ProfileController;
-=======
 use App\Models\PengeluaranBibit;
->>>>>>> bc1e7f284c2f0cbf1064cbb4f6f18b98e97278d5
 
 /*
 |--------------------------------------------------------------------------
@@ -39,8 +36,8 @@ Route::get('/login', function () {
 
 
 // LOGIN2
-Route::post('/postlogin', [LoginController::Class, 'postlogin'])->name('postlogin');
-Route::get('/logout', [LoginController::Class, 'logout'])->name('logout');
+Route::post('/postlogin', [LoginController::class, 'postlogin'])->name('postlogin');
+Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 Route::post('/postlogin', [LoginController::class, 'postlogin'])->name('postlogin');
 
 
@@ -99,14 +96,14 @@ Route::get('/pengeluaranpakan/{id}/edit', [PengeluaranPakanController::class, 'e
 Route::put('/pengeluaranpakan/{id}', [PengeluaranPakanController::class, 'update'])->name('pengeluaranpakan.update');
 Route::delete('/pengeluaranpakan/{id}', [PengeluaranPakanController::class, 'destroy']);
 
-<<<<<<< HEAD
+
 // CRUD Pengeluarann
-Route::get('/pengeluarann', [PengeluarannController::class, 'index']);
-Route::get('/pengeluarann/create', [PengeluarannController::class, 'create']);
-Route::post('/pengeluarann', [PengeluarannController::class, 'store']);
-Route::get('/pengeluarann/{pengeluarann_id}/edit', [PengeluarannController::class, 'edit']);
-Route::put('/pengeluarann/{pengeluarann_id}', [PengeluarannController::class, 'update']);
-Route::delete('/pengeluarann/{pengeluarann_id}', [PengeluarannController::class, 'destroy']);
+// Route::get('/pengeluarann', [PengeluarannController::class, 'index']);
+// Route::get('/pengeluarann/create', [PengeluarannController::class, 'create']);
+// Route::post('/pengeluarann', [PengeluarannController::class, 'store']);
+// Route::get('/pengeluarann/{pengeluarann_id}/edit', [PengeluarannController::class, 'edit']);
+// Route::put('/pengeluarann/{pengeluarann_id}', [PengeluarannController::class, 'update']);
+// Route::delete('/pengeluarann/{pengeluarann_id}', [PengeluarannController::class, 'destroy']);
 
 
 // Route::middleware(['auth'])->group(function () {
@@ -124,7 +121,7 @@ Route::delete('/pengeluarann/{pengeluarann_id}', [PengeluarannController::class,
 //     });
 
 // });
-=======
+
 // CRUD Pengeluaran Bibit
 Route::get('/pengeluaranbibit', [PengeluaranBibitController::class, 'index'])->name('pengeluaranbibit.index');
 Route::get('/pengeluaranbibit/create', [PengeluaranBibitController::class, 'create']);
@@ -140,4 +137,4 @@ Route::post('/pemasukanpanen', [PemasukanPanenController::class, 'store'])->name
 Route::get('/pemasukanpanen/{id}/edit', [PemasukanPanenController::class, 'edit'])->name('pemasukanpanen.edit');
 Route::put('/pemasukanpanen/{id}', [PemasukanPanenController::class, 'update'])->name('pemasukanpanen.update');
 Route::delete('/pemasukanpanen/{id}', [PemasukanPanenController::class, 'destroy'])->name('pemasukanpanen.destroy');
->>>>>>> bc1e7f284c2f0cbf1064cbb4f6f18b98e97278d5
+
