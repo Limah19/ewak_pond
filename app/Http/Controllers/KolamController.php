@@ -19,6 +19,14 @@ class KolamController extends Controller
         return view('kolam.index', compact('kolam'));
     }
 
+    public function cetak()
+    {
+        $kolam = Kolam::all();
+        return view('kolam.cetak', compact('kolam'));
+    }
+
+
+
     /**
      * Show the form for creating a new resource.
      *

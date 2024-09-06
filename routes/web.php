@@ -25,21 +25,10 @@ use App\Models\PengeluaranBibit;
 |
 */
 
+// Dashboard
 Route::get('/dashboard', function () {
     return view('dashboard');
 });
-
-// LOGIN
-Route::get('/login', function () {
-    return view('Pengguna.login');
-})->name('login');
-
-
-// LOGIN2
-Route::post('/postlogin', [LoginController::Class, 'postlogin'])->name('postlogin');
-Route::get('/logout', [LoginController::Class, 'logout'])->name('logout');
-Route::post('/postlogin', [LoginController::class, 'postlogin'])->name('postlogin');
-
 
 // BERANDA
 Route::get('/beranda', function () {
@@ -56,6 +45,16 @@ Route::get('/keuangan', function () {
     return view('keuangan');
 }); 
 
+// LOGIN
+Route::get('/login', function () {
+    return view('Pengguna.login');
+})->name('login');
+
+// LOGIN2
+Route::post('/postlogin', [LoginController::Class, 'postlogin'])->name('postlogin');
+Route::get('/logout', [LoginController::Class, 'logout'])->name('logout');
+Route::post('/postlogin', [LoginController::class, 'postlogin'])->name('postlogin');
+
 // CRUD Kolam
 Route::get('/kolam', [KolamController::class, 'index']);
 Route::get('/kolam/create', [KolamController::class, 'create']);
@@ -63,6 +62,7 @@ Route::post('/kolam', [KolamController::class, 'store']);
 Route::get('/kolam/{kolam_id}/edit', [KolamController::class, 'edit']);
 Route::put('/kolam/{kolam_id}', [KolamController::class, 'update']);
 Route::delete('/kolam/{kolam_id}', [KolamController::class, 'destroy']);
+Route::get('/kolam/cetak', [KolamController::class, 'cetak'])->name('kolam.cetak');
 
 // CRUD Ikan
 Route::get('/ikan', [IkanController::class, 'index']);
@@ -71,6 +71,7 @@ Route::post('/ikan', [IkanController::class, 'store']);
 Route::get('/ikan/{ikan_id}/edit', [IkanController::class, 'edit']);
 Route::put('/ikan/{ikan_id}', [IkanController::class, 'update']);
 Route::delete('/ikan/{ikan_id}', [IkanController::class, 'destroy']);
+Route::get('/ikan/cetak', [IkanController::class, 'cetak'])->name('ikan.cetak');
 
 // CRUD Pakan
 Route::get('/pakan', [PakanController::class, 'index']);
@@ -79,6 +80,7 @@ Route::post('/pakan', [PakanController::class, 'store']);
 Route::get('/pakan/{pakan_id}/edit', [PakanController::class, 'edit']);
 Route::put('/pakan/{pakan_id}', [PakanController::class, 'update']);
 Route::delete('/pakan/{pakan_id}', [PakanController::class, 'destroy']);
+Route::get('/pakan/cetak', [PakanController::class, 'cetak'])->name('pakan.cetak');
 
 // CRUD Panen
 Route::get('/panen', [PanenController::class, 'index']);
@@ -87,6 +89,7 @@ Route::post('/panen', [PanenController::class, 'store']);
 Route::get('/panen/{panen_id}/edit', [PanenController::class, 'edit']);
 Route::put('/panen/{panen_id}', [PanenController::class, 'update']);
 Route::delete('/panen/{panen_id}', [PanenController::class, 'destroy']);
+Route::get('/panen/cetak', [PanenController::class, 'cetak'])->name('panen.cetak');
 
 // CRUD Pengeluaran Pakan
 Route::get('/pengeluaranpakan', [PengeluaranPakanController::class, 'index'])->name('pengeluaranpakan.index');
@@ -95,22 +98,7 @@ Route::post('/pengeluaranpakan', [PengeluaranPakanController::class, 'store'])->
 Route::get('/pengeluaranpakan/{id}/edit', [PengeluaranPakanController::class, 'edit'])->name('pengeluaranpakan.edit');
 Route::put('/pengeluaranpakan/{id}', [PengeluaranPakanController::class, 'update'])->name('pengeluaranpakan.update');
 Route::delete('/pengeluaranpakan/{id}', [PengeluaranPakanController::class, 'destroy']);
-
-// CRUD Pengeluarann
-Route::get('/pengeluarann', [PengeluarannController::class, 'index']);
-Route::get('/pengeluarann/create', [PengeluarannController::class, 'create']);
-Route::post('/pengeluarann', [PengeluarannController::class, 'store']);
-Route::get('/pengeluarann/{pengeluarann_id}/edit', [PengeluarannController::class, 'edit']);
-Route::put('/pengeluarann/{pengeluarann_id}', [PengeluarannController::class, 'update']);
-Route::delete('/pengeluarann/{pengeluarann_id}', [PengeluarannController::class, 'destroy']);
-
-
-// Route::middleware(['auth'])->group(function () {
-//     Route::get('/profile', [ProfileController::class, 'index'])->name('profile.index');
-//     Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('profile.edit');
-//     Route::put('/profile', [ProfileController::class, 'update'])->name('profile.update');
-// });
-
+Route::get('/pengeluaranpakan/cetak', [PengeluaranPakanController::class, 'cetak'])->name('pengeluaranpakan.cetak');
 
 // CRUD Pengeluaran Bibit
 Route::get('/pengeluaranbibit', [PengeluaranBibitController::class, 'index'])->name('pengeluaranbibit.index');
@@ -119,6 +107,7 @@ Route::post('/pengeluaranbibit', [PengeluaranBibitController::class, 'store'])->
 Route::get('/pengeluaranbibit/{id}/edit', [PengeluaranBibitController::class, 'edit'])->name('pengeluaranbibit.edit');
 Route::put('/pengeluaranbibit/{id}', [PengeluaranBibitController::class, 'update'])->name('pengeluaranbibit.update');
 Route::delete('/pengeluaranbibit/{id}', [PengeluaranBibitController::class, 'destroy']);
+Route::get('/pengeluaranbibit/cetak', [PengeluaranBibitController::class, 'cetak'])->name('pengeluaranbibit.cetak');
 
 // CRUD Pemasukan Panen
 Route::get('/pemasukanpanen', [PemasukanPanenController::class, 'index'])->name('pemasukanpanen.index');
@@ -127,9 +116,4 @@ Route::post('/pemasukanpanen', [PemasukanPanenController::class, 'store'])->name
 Route::get('/pemasukanpanen/{id}/edit', [PemasukanPanenController::class, 'edit'])->name('pemasukanpanen.edit');
 Route::put('/pemasukanpanen/{id}', [PemasukanPanenController::class, 'update'])->name('pemasukanpanen.update');
 Route::delete('/pemasukanpanen/{id}', [PemasukanPanenController::class, 'destroy'])->name('pemasukanpanen.destroy');
-
-
-// KEUANGAN
-Route::get('/profil', function () {
-    return view('profil');
-}); 
+Route::get('/pemasukanpanen/cetak', [PemasukanPanenController::class, 'cetak'])->name('pemasukanpanen.cetak');

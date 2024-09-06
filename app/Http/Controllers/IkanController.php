@@ -20,6 +20,12 @@ class IkanController extends Controller
         return view('ikan.index', compact('ikan'));
     }
 
+    public function cetak()
+    {
+        $ikan = Ikan::all();
+        return view('ikan.cetak', compact('ikan'));
+    }
+
     /**
      * Show the form for creating a new resource.
      *
