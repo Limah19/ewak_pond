@@ -30,6 +30,17 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 });
 
+// LOGIN
+Route::get('/login', function () {
+    return view('Pengguna.login');
+})->name('login');
+
+
+// LOGIN2
+Route::post('/postlogin', [LoginController::class, 'postlogin'])->name('postlogin');
+Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
+Route::post('/postlogin', [LoginController::class, 'postlogin'])->name('postlogin');
+
 // BERANDA
 Route::get('/beranda', function () {
     return view('beranda');
@@ -99,6 +110,23 @@ Route::get('/pengeluaranpakan/{id}/edit', [PengeluaranPakanController::class, 'e
 Route::put('/pengeluaranpakan/{id}', [PengeluaranPakanController::class, 'update'])->name('pengeluaranpakan.update');
 Route::delete('/pengeluaranpakan/{id}', [PengeluaranPakanController::class, 'destroy']);
 Route::get('/pengeluaranpakan/cetak', [PengeluaranPakanController::class, 'cetak'])->name('pengeluaranpakan.cetak');
+
+// CRUD Pengeluarann
+// Route::get('/pengeluarann', [PengeluarannController::class, 'index']);
+// Route::get('/pengeluarann/create', [PengeluarannController::class, 'create']);
+// Route::post('/pengeluarann', [PengeluarannController::class, 'store']);
+// Route::get('/pengeluarann/{pengeluarann_id}/edit', [PengeluarannController::class, 'edit']);
+// Route::put('/pengeluarann/{pengeluarann_id}', [PengeluarannController::class, 'update']);
+// Route::delete('/pengeluarann/{pengeluarann_id}', [PengeluarannController::class, 'destroy']);
+
+
+// Route::middleware(['auth'])->group(function () {
+//     Route::get('/profile', [ProfileController::class, 'index'])->name('profile.index');
+//     Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('profile.edit');
+//     Route::put('/profile', [ProfileController::class, 'update'])->name('profile.update');
+// });
+
+
 
 // CRUD Pengeluaran Bibit
 Route::get('/pengeluaranbibit', [PengeluaranBibitController::class, 'index'])->name('pengeluaranbibit.index');
