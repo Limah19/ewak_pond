@@ -6,6 +6,12 @@ Daftar Data Pakan
 
 @push('script')
 <script src="https://cdn.datatables.net/v/bs4/dt-1.13.6/datatables.min.js"></script>
+<style>
+.btn-primary {
+        float: right; /* Memindahkan tombol ke kanan */
+        margin-left: auto; /* Agar tombol benar-benar berada di kanan */
+    }
+  </style>
 <script>
   $(function() {
     $('#example1').DataTable({
@@ -25,6 +31,7 @@ Daftar Data Pakan
 
 @section('content')
 <a class="btn btn-secondary mb-3" href="/pakan/create">Tambah Data Pakan</a>
+<a class="btn btn-primary mb-3" target="blank" href="/pakan/cetak">Cetak Data Pakan <i class="fas fa-print"></i></a>
 <table class="table" id="example1">
   <thead class="thead-dark">
     <tr>

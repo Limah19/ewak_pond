@@ -17,6 +17,13 @@ class PakanController extends Controller
         return view('pakan.index', compact('pakan'));
     }
 
+    public function cetak()
+    {
+        // Mengambil data pakan beserta relasi ikan dan kolam
+        $pakan = Pakan::with('ikan', 'kolam')->get();
+        return view('pakan.cetak', compact('pakan'));
+    }
+
     public function create()
     {
         // Mengambil data ikan dan kolam

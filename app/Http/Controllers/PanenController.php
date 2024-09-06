@@ -17,6 +17,13 @@ class PanenController extends Controller
         return view('panen.index', compact('panen'));
     }
 
+    public function cetak()
+    {
+        // Mengambil data panen beserta relasi ikan dan kolam
+        $panen = Panen::with('ikan', 'kolam')->get();
+        return view('panen.cetak', compact('panen'));
+    }
+
     public function create()
     {
         $ikan = Ikan::all();

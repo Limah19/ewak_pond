@@ -16,6 +16,12 @@ class PengeluaranBibitController extends Controller
         return view('pengeluaranbibit.index', compact('pengeluaranbibit'));
     }
 
+    public function cetak()
+    {
+        $pengeluaranbibit = PengeluaranBibit::all();
+        return view('pengeluaranbibit.cetak', compact('pengeluaranbibit'));
+    }
+
     public function create()
     {
         $kolam = Kolam::all();

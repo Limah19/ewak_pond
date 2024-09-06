@@ -17,6 +17,12 @@ class PemasukanPanenController extends Controller
         $pemasukanPanen = PemasukanPanen::all();
         return view('pemasukanpanen.index', compact('pemasukanPanen'));
     }
+    public function cetak()
+    {
+        $pemasukanPanen = PemasukanPanen::all();
+        return view('pemasukanpanen.cetak', compact('pemasukanPanen'));
+    }
+
 
     public function create()
     {

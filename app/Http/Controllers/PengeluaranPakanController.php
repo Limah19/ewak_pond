@@ -16,6 +16,12 @@ class PengeluaranPakanController extends Controller
         return view('pengeluaranpakan.index', compact('pengeluaranpakan'));
     }
 
+    public function cetak()
+    {
+        $pengeluaranpakan = PengeluaranPakan::all();
+        return view('pengeluaranpakan.cetak', compact('pengeluaranpakan'));
+    }
+
     public function create()
     {
         $kolam = Kolam::all();

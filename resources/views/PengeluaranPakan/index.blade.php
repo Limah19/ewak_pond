@@ -21,10 +21,15 @@ Daftar Pengeluaran Pakan Ikan
   .table-responsive {
     overflow-x: auto;
   }
+.btn-primary {
+        float: right; /* Memindahkan tombol ke kanan */
+        margin-left: auto; /* Agar tombol benar-benar berada di kanan */
+    }
 </style>
 
 @section('content')
 <a class="btn btn-secondary mb-3" href="/pengeluaranpakan/create">Tambah Pengeluaran Pakan Ikan</a>
+<a class="btn btn-primary mb-3" target="blank" href="/pengeluaranpakan/cetak">Cetak Data Pengeluaran Pakan Ikan <i class="fas fa-print"></i></a>
 <div class="table-responsive">
   <table id="example1" class="table table-bordered table-striped">
     <thead class="thead-dark">
