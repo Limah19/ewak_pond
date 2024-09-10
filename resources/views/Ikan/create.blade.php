@@ -26,7 +26,7 @@ Tambah Data Bibit Ikan
             @enderror
 
             <div class="form-group">
-                <label>Nama Ikan</label>
+                <label>Nama Bibit Ikan</label>
                 <input type="text" name="nama_ikan" value="" class="form-control" placeholder="Masukkan Nama Bibit Ikan" required>
             </div>
             @error('nama_ikan')
@@ -34,7 +34,7 @@ Tambah Data Bibit Ikan
             @enderror
 
             <div class="form-group">
-                <label>Jenis Ikan</label>
+                <label>Jenis Bibit Ikan</label>
                 <input type="text" name="jenis_ikan" value="" class="form-control" placeholder="Masukkan Jenis Bibit Ikan" required>
             </div>
             @error('jenis_ikan')
@@ -42,7 +42,7 @@ Tambah Data Bibit Ikan
             @enderror
 
             <div class="form-group">
-                <label>Jumlah Ikan</label>
+                <label>Jumlah Bibit Ikan</label>
                 <input type="number" name="jumlah" value="Jumlah Ikan" class="form-control" placeholder="Masukkan Jumlah Bibit Ikan" required>
             </div>
             @error('jumlah')

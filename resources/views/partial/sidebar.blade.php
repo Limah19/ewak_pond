@@ -13,75 +13,81 @@
           </p>
         </a>
       </li>
-      <li class="nav-item menu-open">
-            <a href="/" class="nav-link">
-              <i class="nav-icon fas fa-user-tie"></i>
-              <p>
-              Administrasi
-              <i class="right fas fa-angle-left"></i> 
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-
-              @if(Auth::user()->level == 'admin' || Auth::user()->level == 'karyawan')
-              <li class="nav-item">
-                <a href="/administrasi" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Data Administrasi</p>
-                </a>
-              </li>
-              @endif
-              @if(Auth::user()->level == 'admin' || Auth::user()->level == 'user')
-              <li class="nav-item">
-                <a href="/administrasi" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Data Administrasi</p>
-                </a>
-              </li>
-              @endif
-            </ul>
-      
-            <li class="nav-item menu-open">
-            <a href="/keuangan" class="nav-link">
-              <i class="nav-icon fas fa-wallet"></i>
-              <p>
-              Keuangan
-              <i class="right fas fa-angle-left"></i> 
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-
-            @if(Auth::user()->level == 'admin' || Auth::user()->level == 'karyawan')
-            <li class="nav-item">
-                <a href="/keuangan" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Data Keuangann </p>
-                </a>
-              </li>
-              @endif
-              @if(Auth::user()->level == 'admin' || Auth::user()->level == 'user')
-              <li class="nav-item">
-                <a href="/keuangan" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Data Keuangan </p>
-                </a>
-              </li>
-              @endif
-            </ul>
-
-            <li class="nav-item">
-        <a href="/profil" class="nav-link">
+      <li class="nav-item">
+        <a href="/administrasi" class="nav-link">
           <i class="nav-icon fas fa-user"></i>
           <p>
-          Profil
+            Administrasi
           </p>
         </a>
       </li>
       <li class="nav-item">
-        <a href="{{route('logout')}}" class="nav-link">
+        <a href="/keuangan" class="nav-link">
+          <i class="nav-icon fas fa-wallet"></i>
+          <p>
+            Keuangan
+          </p>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a href="/" class="nav-link">
+          <i class="nav-icon fas fa-clipboard"></i>
+          <p>
+            Cetak Laporan
+            <i class="right fas fa-angle-right"></i>
+          </p>
+        </a>
+        <ul class="nav-treeview">
+          <li class="nav-item">
+            <a href="{{ route('cetak-data-pegawai-form') }}" class="nav-link">
+              <i class="far fa-circle nav-icon"></i>
+              <p>
+                Data Pakan
+              </p>
+            </a>
+          <li class="nav-item">
+            <a href="{{ route('cetak-data-pegawaii-form') }}" class="nav-link">
+              <i class="far fa-circle nav-icon"></i>
+              <p>
+                Data Panen
+              </p>
+            </a>
+          <li class="nav-item">
+            <a href="{{ route('cetak-data-pegawaiii-form') }}" class="nav-link">
+              <i class="far fa-circle nav-icon"></i>
+              <p>
+                P.Hasil Panen
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="{{ route('cetak-data-pegawaiiii-form') }}" class="nav-link">
+              <i class="far fa-circle nav-icon"></i>
+              <p>
+                Pengeluaran Bibit
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="{{ route('cetak-data-pegawaiiiii-form') }}" class="nav-link">
+              <i class="far fa-circle nav-icon"></i>
+              <p>Pengeluaran Pakan</p>
+            </a>
+          </li>
+        </ul>
+      <!-- <li class="nav-item">
+        <a href="/profile" class="nav-link">
+          <i class="nav-icon fas fa-user"></i>
+          <p>
+            Profil
+          </p>
+        </a>
+      </li> -->
+      <li class="nav-item">
+        <a href="/logout" class="nav-link">
           <i class="nav-icon fas fa-sign-out-alt"></i>
           <p>
-          Logout
+            Logout
           </p>
         </a>
       </li>

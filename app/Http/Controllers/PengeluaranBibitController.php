@@ -22,6 +22,17 @@ class PengeluaranBibitController extends Controller
         return view('pengeluaranbibit.cetak', compact('pengeluaranbibit'));
     }
 
+    public function cetakForm(){
+        return view('Pengeluaranbibit.Cetak-pegawaiiii-form');
+    }
+
+    public function cetakPertanggal($tglawal, $tglakhir){
+        // dd(["Tanggal Awal : ".$tglawal, "Tanggal Akhir : ".$tglakhir]);
+        $cetakPertanggal = PengeluaranBibit::all()->whereBetween('tanggal_pembelian',[$tglawal, $tglakhir]);
+        return view('Pengeluaranbibit.Cetak-pengeluaran-bibit-pertanggal', compact('cetakPertanggal'));
+    }
+   
+
     public function create()
     {
         $kolam = Kolam::all();

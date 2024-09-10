@@ -25,7 +25,7 @@ Daftar Data Panen
 
 @section('content')
 <a class="btn btn-secondary mb-3" href="/panen/create">Tambah Data Panen</a>
-<a class="btn btn-primary mb-3" target="blank" href="/panen/cetak">Cetak Data Panen <i class="fas fa-print"></i></a>
+<!-- <a class="btn btn-primary mb-3" target="blank" href="/panen/cetak">Cetak Data Panen <i class="fas fa-print"></i></a> -->
 <table class="table" id="example1">
   <thead class="thead-dark">
     <tr>

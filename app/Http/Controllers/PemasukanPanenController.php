@@ -23,6 +23,17 @@ class PemasukanPanenController extends Controller
         return view('pemasukanpanen.cetak', compact('pemasukanPanen'));
     }
 
+    public function cetakForm(){
+        return view('Pemasukanpanen.Cetak-pegawaiii-form');
+    }
+
+    public function cetakPertanggal($tglawal, $tglakhir){
+        // dd(["Tanggal Awal : ".$tglawal, "Tanggal Akhir : ".$tglakhir]);
+        $cetakPertanggal = PemasukanPanen::all()->whereBetween('tanggal_panen',[$tglawal, $tglakhir]);
+        return view('Pemasukanpanen.Cetak-pemasukan-panen-pertanggal', compact('cetakPertanggal'));
+    }
+   
+
 
     public function create()
     {

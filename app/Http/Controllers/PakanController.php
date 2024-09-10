@@ -17,12 +17,20 @@ class PakanController extends Controller
         return view('pakan.index', compact('pakan'));
     }
 
-    public function cetak()
-    {
-        // Mengambil data pakan beserta relasi ikan dan kolam
-        $pakan = Pakan::with('ikan', 'kolam')->get();
+    public function cetak(Request $request){
+        $pakan = Pakan::all();
         return view('pakan.cetak', compact('pakan'));
     }
+    public function cetakForm(){
+        return view('Pakan.Cetak-pegawai-form');
+    }
+
+    public function cetakPertanggal($tglawal, $tglakhir){
+        // dd(["Tanggal Awal : ".$tglawal, "Tanggal Akhir : ".$tglakhir]);
+        $cetakPertanggal = Pakan::all()->whereBetween('tanggal_pemberian',[$tglawal, $tglakhir]);
+        return view('Pakan.Cetak-pakan-pertanggal', compact('cetakPertanggal'));
+    }
+   
 
     public function create()
     {

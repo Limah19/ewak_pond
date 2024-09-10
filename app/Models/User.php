@@ -20,8 +20,8 @@ class User extends Authenticatable
     protected $fillable = [
         'name',
         'email',
-        'level',
         'password',
+        'role'
     ];
 
     /**
@@ -47,5 +47,6 @@ class User extends Authenticatable
     // public function user()
     // {
     //     return $this->hasOne(Profile::class);
+    
     }
 

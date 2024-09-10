@@ -1,7 +1,8 @@
 @extends('layout.master')
 
 @section('judul')
-Selamat Datang di Ewak Pond
+Selamat Datang di Ewak Pond "{{ Auth::user()->name }}"
+
 @endsection
 
 @section('content')
@@ -36,8 +37,8 @@ Selamat Datang di Ewak Pond
 
         .header-container img {
             margin-right: 20px;
-            width: 150px;
-            height: 150px;
+            width: 100px;
+            height: 100px;
             border-radius: 50%;
         }
 
@@ -49,14 +50,14 @@ Selamat Datang di Ewak Pond
 
         .text-container h1 {
             margin: 0;
-            font-size: 50px;
+            font-size: 40px;
             font-style: bold;
             color: #32373b;
         }
 
         .text-container h6 {
             margin: 0;
-            font-size: 16px;
+            font-size: 14px;
             color: #32373b;
         }
 
@@ -102,7 +103,7 @@ Selamat Datang di Ewak Pond
         <img src="{{ asset('admin/dist/img/EwakPondLogo.png') }}" alt="EwakPond Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
         <div class="text-container">
             <h1>KELOMPOK BUDIDAYA IKAN</h1>
-            <h6><b>Ewak Pond</b> adalah kelompok budidaya ikan yang berfokus pada pengelolaan dan pengembangan usaha akuakultur secara berkelanjutan. Kelompok ini bertujuan untuk meningkatkan kualitas dan kuantitas produksi ikan sambil mempromosikan praktik budidaya yang ramah lingkungan dan efisien.</h6>
+            <h6><b>Ewak Pond</b> merupakan kelompok budidaya kolam ikan tawar milik masyarakat setempat yang berlokasi di pekon patoman kecamatan pagelaran kabupaten pringsewu. Bapak Evran yang merupakan ketua kelompok dari ewak pond, ewak pond memiliki 14 anggota dengan jumlah 20 kolam ikan yang dibudidayakan yaitu terdiri dari ikan lele, ikan nila dan ikan gurame.</h6>
             <!-- Ingin ke halaman home, <a href="/dashboard">klik disini</a> -->
         </div>
     </div>

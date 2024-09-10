@@ -94,7 +94,7 @@ Tambah Data Pakan
 
                     jumlahPakanInput.value = Math.round(jumlahPakanMingguanKg); // Bulatkan tanpa desimal
                 } else {
-                    jumlahPakanInput.value = '0';
+                    jumlahPakanInput.value = '';
                 }
             }
         }

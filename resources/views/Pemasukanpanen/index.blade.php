@@ -30,7 +30,7 @@ Daftar Pemasukan Panen
 
 @section('content')
 <a class="btn btn-secondary mb-3" href="/pemasukanpanen/create">Tambah Pemasukan Panen</a>
-<a class="btn btn-primary mb-3" target="blank" href="/pemasukanpanen/cetak">Cetak Pemasukan Panen <i class="fas fa-print"></i></a>
+<!-- <a class="btn btn-primary mb-3" target="blank" href="/pemasukanpanen/cetak">Cetak Pemasukan Panen <i class="fas fa-print"></i></a> -->
 <div class="table-responsive">
   <table id="example1" class="table table-bordered table-striped">
     <thead class="thead-dark">

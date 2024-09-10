@@ -60,7 +60,7 @@
 <body class="hold-transition login-page">
 <div class="login-box">
   <div class="login-logo">
-    <a href="#"><b>SISTEM INFORMASI Pengolahan Data Ikan</b></a>
+    <a href="#"><b>MANAJEMEN DATA ADMISISTRASI Peternak Ikan Tawar</b></a>
   </div>
   <!-- /.login-logo -->
 
@@ -115,6 +115,7 @@
 <div class="logo-bawah">
 <img src="{{ asset('admin/dist/img/UTILogo.png') }}" alt="UTI Logo" style="width: 50px;">
 <img src="{{ asset('admin/dist/img/WuriLogo.png') }}" alt="Wuri Logo" style="width: 50px;">
+
       </div>
 <!-- jQuery -->
 <script src="{{ asset('admin/plugins/jquery/jquery.min.js') }}"></script>

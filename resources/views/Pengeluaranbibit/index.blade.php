@@ -29,7 +29,7 @@ Daftar Pengeluaran Bibit Ikan
 
 @section('content')
 <a class="btn btn-secondary mb-3" href="/pengeluaranbibit/create">Tambah Pengeluaran Bibit Ikan</a>
-<a class="btn btn-primary mb-3" target="blank" href="/pengeluaranbibit/cetak">Cetak Data Pengeluaran Bibit Ikan <i class="fas fa-print"></i></a>
+<!-- <a class="btn btn-primary mb-3" target="blank" href="/pengeluaranbibit/cetak">Cetak Data Pengeluaran Bibit Ikan <i class="fas fa-print"></i></a> -->
 <div class="table-responsive">
   <table id="example1" class="table table-bordered table-striped">
     <thead class="thead-dark">

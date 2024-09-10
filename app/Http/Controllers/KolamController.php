@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Models\Kolam;
 use RealRashid\SweetAlert\Facades\Alert;
@@ -15,6 +15,7 @@ class KolamController extends Controller
      */
     public function index()
     {
+        // $kolam = Kolam::where('user_id', auth()->id())->get(); // Menampilkan hanya data milik user yang sedang login
         $kolam = Kolam::all();
         return view('kolam.index', compact('kolam'));
     }
@@ -52,6 +53,11 @@ class KolamController extends Controller
             'jumlah_ikan' => 'required|integer',
             'status' => 'required|boolean',
         ]);
+
+        // $data['user_id'] = auth()->id(); // Menyimpan user_id
+        // Kolam::create($data);
+    
+        // return redirect()->route('kolam.index')->with('success', 'Kolam berhasil ditambahkan');
 
         $kolam = new Kolam([
             'nama_kolam' => $request->nama_kolam,

@@ -16,6 +16,7 @@ class Kolam extends Model
         'ukuran_kolam',
         'nama_ikan',
         'jumlah_ikan',
-        'status'
+        'status',
+        // 'user_id'
     ];
 }

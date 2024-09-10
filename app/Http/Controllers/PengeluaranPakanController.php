@@ -21,6 +21,16 @@ class PengeluaranPakanController extends Controller
         $pengeluaranpakan = PengeluaranPakan::all();
         return view('pengeluaranpakan.cetak', compact('pengeluaranpakan'));
     }
+    public function cetakForm(){
+        return view('Pengeluaranpakan.Cetak-pegawaiiiii-form');
+    }
+
+    public function cetakPertanggal($tglawal, $tglakhir){
+        // dd(["Tanggal Awal : ".$tglawal, "Tanggal Akhir : ".$tglakhir]);
+        $cetakPertanggal = PengeluaranPakan::all()->whereBetween('tanggal_pembelian',[$tglawal, $tglakhir]);
+        return view('Pengeluaranpakan.Cetak-pengeluaran-pakan-pertanggal', compact('cetakPertanggal'));
+    }
+   
 
     public function create()
     {

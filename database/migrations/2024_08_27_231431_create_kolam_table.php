@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('nama_ikan');
             $table->integer('jumlah_ikan');
             $table->boolean('status'); // Mengubah kolom 'status' menjadi boolean
+            // $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
             $table->timestamps(); // Tetap menggunakan timestamps untuk created_at dan updated_at
         });
     }

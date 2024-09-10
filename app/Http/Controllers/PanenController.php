@@ -23,6 +23,16 @@ class PanenController extends Controller
         $panen = Panen::with('ikan', 'kolam')->get();
         return view('panen.cetak', compact('panen'));
     }
+    public function cetakForm(){
+        return view('Panen.Cetak-pegawaii-form');
+    }
+
+    public function cetakPertanggal($tglawal, $tglakhir){
+        // dd(["Tanggal Awal : ".$tglawal, "Tanggal Akhir : ".$tglakhir]);
+        $cetakPertanggal = Panen::all()->whereBetween('tanggal_panen',[$tglawal, $tglakhir]);
+        return view('Panen.Cetak-panen-pertanggal', compact('cetakPertanggal'));
+    }
+   
 
     public function create()
     {

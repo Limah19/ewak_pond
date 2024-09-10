@@ -11,8 +11,11 @@ use App\Http\Controllers\PengeluaranPakanController;
 use App\Http\Controllers\PengeluaranBibitController;
 use App\Http\Controllers\PemasukanPanenController;
 use App\Http\Controllers\LoginController;
-use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\AdminController;
+
+use App\Http\Controllers\UserProfileController;
 use App\Models\PengeluaranBibit;
+use Illuminate\Routing\Route as RoutingRoute;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,26 +28,55 @@ use App\Models\PengeluaranBibit;
 |
 */
 
-// Dashboard
+//LOGIN
+Route::middleware(['guest'])->group(function () {
+    Route::get('/', [LoginController::class, 'index'])->name('login');
+    Route::post('/', [LoginController::class, 'login']);
+});
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    return redirect('/beranda');
 });
 
+// Route::middleware((['auth'])->group(function (){
+//     Route::resource('user');
+
+//     Route::middleware((EnsureDataUserComplated::class)->group(function(){
+//         Route:: resource('userprofile',UserProfileController::class);
+//     }));
+   
+
+// }));
+
+
+// Route::get('/profile', function () {
+//     return view('profile');
+// });
+
+
+
+Route::middleware(['auth'])->group(function () {
+    Route::get('/beranda', [AdminController::class, 'index']);
+    Route::get('/beranda/admin', [AdminController::class, 'admin'])->middleware('userAkses:admin');
+    Route::get('/beranda/pengguna', [AdminController::class, 'pengguna'])->middleware('userAkses:pengguna');
+    Route::get('/logout', [LoginController::class, 'logout']);
+});
+
+
+// Dashboard
+// Route::get('/dashboard', function () {
+//     return view('dashboard');
+// });
+
 // LOGIN
-Route::get('/login', function () {
-    return view('Pengguna.login');
-})->name('login');
+// Route::get('/login', function () {
+//     return view('Pengguna.login');
+// })->name('login');
 
 
 // LOGIN2
-Route::post('/postlogin', [LoginController::class, 'postlogin'])->name('postlogin');
-Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
-Route::post('/postlogin', [LoginController::class, 'postlogin'])->name('postlogin');
-
-// BERANDA
-Route::get('/beranda', function () {
-    return view('beranda');
-});
+// Route::post('/postlogin', [LoginController::class, 'postlogin'])->name('postlogin');
+// Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
+// Route::post('/postlogin', [LoginController::class, 'postlogin'])->name('postlogin');
 
 // Administrasi
 Route::get('/administrasi', function () {
@@ -54,17 +86,7 @@ Route::get('/administrasi', function () {
 // KEUANGAN
 Route::get('/keuangan', function () {
     return view('keuangan');
-}); 
-
-// LOGIN
-Route::get('/login', function () {
-    return view('Pengguna.login');
-})->name('login');
-
-// LOGIN2
-Route::post('/postlogin', [LoginController::Class, 'postlogin'])->name('postlogin');
-Route::get('/logout', [LoginController::Class, 'logout'])->name('logout');
-Route::post('/postlogin', [LoginController::class, 'postlogin'])->name('postlogin');
+});
 
 // CRUD Kolam
 Route::get('/kolam', [KolamController::class, 'index']);
@@ -74,6 +96,9 @@ Route::get('/kolam/{kolam_id}/edit', [KolamController::class, 'edit']);
 Route::put('/kolam/{kolam_id}', [KolamController::class, 'update']);
 Route::delete('/kolam/{kolam_id}', [KolamController::class, 'destroy']);
 Route::get('/kolam/cetak', [KolamController::class, 'cetak'])->name('kolam.cetak');
+Route::middleware(['auth'])->group(function () {
+    Route::resource('kolam', KolamController::class);
+});
 
 // CRUD Ikan
 Route::get('/ikan', [IkanController::class, 'index']);
@@ -92,6 +117,8 @@ Route::get('/pakan/{pakan_id}/edit', [PakanController::class, 'edit']);
 Route::put('/pakan/{pakan_id}', [PakanController::class, 'update']);
 Route::delete('/pakan/{pakan_id}', [PakanController::class, 'destroy']);
 Route::get('/pakan/cetak', [PakanController::class, 'cetak'])->name('pakan.cetak');
+Route::get('/cetak-data-pegawai-form', [PakanController::class, 'cetakForm'])->name('cetak-data-pegawai-form');
+Route::get('/cetak-data-pertanggall/{tglawal}/{tglakhir}', [PakanController::class, 'cetakPertanggal'])->name('cetak-data-pakan-pertanggall');
 
 // CRUD Panen
 Route::get('/panen', [PanenController::class, 'index']);
@@ -100,7 +127,8 @@ Route::post('/panen', [PanenController::class, 'store']);
 Route::get('/panen/{panen_id}/edit', [PanenController::class, 'edit']);
 Route::put('/panen/{panen_id}', [PanenController::class, 'update']);
 Route::delete('/panen/{panen_id}', [PanenController::class, 'destroy']);
-Route::get('/panen/cetak', [PanenController::class, 'cetak'])->name('panen.cetak');
+Route::get('/cetak-data-pegawaii-form', [PanenController::class, 'cetakForm'])->name('cetak-data-pegawaii-form');
+Route::get('/cetak-data-pertanggal/{tglawal}/{tglakhir}', [PanenController::class, 'cetakPertanggal'])->name('cetak-data-pertanggal');
 
 // CRUD Pengeluaran Pakan
 Route::get('/pengeluaranpakan', [PengeluaranPakanController::class, 'index'])->name('pengeluaranpakan.index');
@@ -110,23 +138,8 @@ Route::get('/pengeluaranpakan/{id}/edit', [PengeluaranPakanController::class, 'e
 Route::put('/pengeluaranpakan/{id}', [PengeluaranPakanController::class, 'update'])->name('pengeluaranpakan.update');
 Route::delete('/pengeluaranpakan/{id}', [PengeluaranPakanController::class, 'destroy']);
 Route::get('/pengeluaranpakan/cetak', [PengeluaranPakanController::class, 'cetak'])->name('pengeluaranpakan.cetak');
-
-// CRUD Pengeluarann
-// Route::get('/pengeluarann', [PengeluarannController::class, 'index']);
-// Route::get('/pengeluarann/create', [PengeluarannController::class, 'create']);
-// Route::post('/pengeluarann', [PengeluarannController::class, 'store']);
-// Route::get('/pengeluarann/{pengeluarann_id}/edit', [PengeluarannController::class, 'edit']);
-// Route::put('/pengeluarann/{pengeluarann_id}', [PengeluarannController::class, 'update']);
-// Route::delete('/pengeluarann/{pengeluarann_id}', [PengeluarannController::class, 'destroy']);
-
-
-// Route::middleware(['auth'])->group(function () {
-//     Route::get('/profile', [ProfileController::class, 'index'])->name('profile.index');
-//     Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('profile.edit');
-//     Route::put('/profile', [ProfileController::class, 'update'])->name('profile.update');
-// });
-
-
+Route::get('/cetak-data-pegawaiiiii-form', [PengeluaranPakanController::class, 'cetakForm'])->name('cetak-data-pegawaiiiii-form');
+Route::get('/cetak-data-pertanggalllll/{tglawal}/{tglakhir}', [PengeluaranPakanController::class, 'cetakPertanggal'])->name('cetak-data-pertanggalllll');
 
 // CRUD Pengeluaran Bibit
 Route::get('/pengeluaranbibit', [PengeluaranBibitController::class, 'index'])->name('pengeluaranbibit.index');
@@ -136,6 +149,9 @@ Route::get('/pengeluaranbibit/{id}/edit', [PengeluaranBibitController::class, 'e
 Route::put('/pengeluaranbibit/{id}', [PengeluaranBibitController::class, 'update'])->name('pengeluaranbibit.update');
 Route::delete('/pengeluaranbibit/{id}', [PengeluaranBibitController::class, 'destroy']);
 Route::get('/pengeluaranbibit/cetak', [PengeluaranBibitController::class, 'cetak'])->name('pengeluaranbibit.cetak');
+Route::get('/cetak-data-pegawaiiii-form', [PengeluaranBibitController::class, 'cetakForm'])->name('cetak-data-pegawaiiii-form');
+Route::get('/cetak-data-pertanggallll/{tglawal}/{tglakhir}', [PengeluaranBibitController::class, 'cetakPertanggal'])->name('cetak-data-pertanggallll');
+
 
 // CRUD Pemasukan Panen
 Route::get('/pemasukanpanen', [PemasukanPanenController::class, 'index'])->name('pemasukanpanen.index');
@@ -145,3 +161,5 @@ Route::get('/pemasukanpanen/{id}/edit', [PemasukanPanenController::class, 'edit'
 Route::put('/pemasukanpanen/{id}', [PemasukanPanenController::class, 'update'])->name('pemasukanpanen.update');
 Route::delete('/pemasukanpanen/{id}', [PemasukanPanenController::class, 'destroy'])->name('pemasukanpanen.destroy');
 Route::get('/pemasukanpanen/cetak', [PemasukanPanenController::class, 'cetak'])->name('pemasukanpanen.cetak');
+Route::get('/cetak-data-pegawaiii-form', [PemasukanPanenController::class, 'cetakForm'])->name('cetak-data-pegawaiii-form');
+Route::get('/cetak-data-pertanggalll/{tglawal}/{tglakhir}', [PemasukanPanenController::class, 'cetakPertanggal'])->name('cetak-data-pertanggalll');

@@ -60,7 +60,7 @@ Selamat Datang "{{ Auth::user()->name }}"
     <!-- <h6>Sebagai pengelola operasional, Bapak Rizky bertanggung jawab atas koordinasi dan pengawasan berbagai aktivitas yang terkait dengan produksi ikan, termasuk pengelolaan pakan, perawatan kolam, dan pemantauan kesehatan ikan. Beliau juga terlibat dalam pengembangan dan penerapan prosedur operasional standar untuk memastikan efisiensi dan kualitas produksi.</h6> -->
 
     <!-- Statistik -->
-    <div class="stat-box"> 
+    <!-- <div class="stat-box">  -->
     <div class="row">
         <div class="col-lg-3 col-6">
             <!-- small box -->
@@ -114,7 +114,7 @@ Selamat Datang "{{ Auth::user()->name }}"
             </div>
         </div>
         <!-- ./col -->
-    </div>
+    
 </body>
 
 
